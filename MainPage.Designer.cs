@@ -1,6 +1,6 @@
 ﻿namespace DexDatabase
 {
-	partial class Form1
+	partial class MainPage
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
 			this.SearchBar = new System.Windows.Forms.TextBox();
 			this.SearchButton = new System.Windows.Forms.Button();
 			this.DexLabel = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
 			// 
 			this.SearchBar.AcceptsTab = true;
 			this.SearchBar.Location = new System.Drawing.Point(240, 105);
-			this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
 			this.SearchBar.Name = "SearchBar";
 			this.SearchBar.Size = new System.Drawing.Size(185, 20);
 			this.SearchBar.TabIndex = 0;
@@ -53,7 +53,7 @@
 			// SearchButton
 			// 
 			this.SearchButton.Location = new System.Drawing.Point(445, 105);
-			this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
 			this.SearchButton.Name = "SearchButton";
 			this.SearchButton.Size = new System.Drawing.Size(57, 20);
 			this.SearchButton.TabIndex = 1;
@@ -109,7 +109,7 @@
 			// CaughtText
 			// 
 			this.CaughtText.Location = new System.Drawing.Point(357, 46);
-			this.CaughtText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.CaughtText.Margin = new System.Windows.Forms.Padding(2);
 			this.CaughtText.Name = "CaughtText";
 			this.CaughtText.Size = new System.Drawing.Size(68, 20);
 			this.CaughtText.TabIndex = 6;
@@ -117,7 +117,7 @@
 			// SeenText
 			// 
 			this.SeenText.Location = new System.Drawing.Point(357, 68);
-			this.SeenText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.SeenText.Margin = new System.Windows.Forms.Padding(2);
 			this.SeenText.Name = "SeenText";
 			this.SeenText.Size = new System.Drawing.Size(68, 20);
 			this.SeenText.TabIndex = 7;
@@ -131,7 +131,7 @@
 			this.AddButton.Text = "Add Pokemon";
 			this.AddButton.UseVisualStyleBackColor = true;
 			// 
-			// Form1
+			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,8 +147,8 @@
 			this.Controls.Add(this.DexLabel);
 			this.Controls.Add(this.SearchButton);
 			this.Controls.Add(this.SearchBar);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.Name = "Form1";
+			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Name = "MainPage";
 			this.Text = "Form1";
 			this.ResumeLayout(false);
 			this.PerformLayout();

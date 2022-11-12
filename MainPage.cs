@@ -21,8 +21,8 @@ namespace DexDatabase
 			InitializeComponent();
 			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
 			cnn = new SqlConnection(connectionString);
-
-			loadDexEntries();
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\001.png");
+            loadDexEntries();
 
 		}
 
@@ -56,10 +56,6 @@ namespace DexDatabase
 
 		}
 
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("tabPage1");
-        }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -67,11 +63,35 @@ namespace DexDatabase
         }
 
 
+        //add exception for image fetch for on the offchance that all entries are not populated / the image doesn't exist
+        private void dexEntryPlaceholder1_Click(object sender, EventArgs e)
+        {
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNoPlaceHolder1.Text}.png"); //EX:Project Dir/001.png
+            
+        }
+
+        private void dexEntryPlaceholder2_Click(object sender, EventArgs e)
+        { 
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNoPlaceHolder2.Text}.png");
+        }
+
+        private void dexEntryPlaceholder3_Click(object sender, EventArgs e)
+        {
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNoPlaceHolder3.Text}.png");
+        }
+        private void dexEntryPlaceholder4_Click(object sender, EventArgs e)
+        {
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNoPlaceHolder4.Text}.png");
+        }
+        private void dexEntryPlaceholder5_Click(object sender, EventArgs e)
+        {
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNoPlaceHolder5.Text}.png");
+        }
 
 
 
 
-		private void loadDexEntries()
+        private void loadDexEntries()
 		{
 
 			cnn.Open();

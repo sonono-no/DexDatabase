@@ -1,4 +1,8 @@
-﻿namespace DexDatabase
+﻿using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+
+namespace DexDatabase
 {
 	partial class MainPage
 	{
@@ -55,11 +59,16 @@
             this.dexEntryPlaceholder3 = new System.Windows.Forms.Panel();
             this.namePlaceholder3 = new System.Windows.Forms.Label();
             this.dexNoPlaceHolder3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pokePicture = new System.Windows.Forms.PictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.dexEntryPlaceholder1.SuspendLayout();
             this.dexEntryPlaceholder2.SuspendLayout();
             this.dexEntryPlaceholder5.SuspendLayout();
             this.dexEntryPlaceholder4.SuspendLayout();
             this.dexEntryPlaceholder3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pokePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchBar
@@ -160,13 +169,14 @@
             // 
             // dexEntryPlaceholder1
             // 
+            this.dexEntryPlaceholder1.BackColor = System.Drawing.SystemColors.Info;
             this.dexEntryPlaceholder1.Controls.Add(this.namePlaceholder1);
             this.dexEntryPlaceholder1.Controls.Add(this.dexNoPlaceHolder1);
             this.dexEntryPlaceholder1.Location = new System.Drawing.Point(24, 168);
             this.dexEntryPlaceholder1.Name = "dexEntryPlaceholder1";
             this.dexEntryPlaceholder1.Size = new System.Drawing.Size(200, 37);
             this.dexEntryPlaceholder1.TabIndex = 9;
-            this.dexEntryPlaceholder1.Click += new System.EventHandler(this.panel1_Click);
+            this.dexEntryPlaceholder1.Click += new System.EventHandler(this.dexEntryPlaceholder1_Click);
             // 
             // namePlaceholder1
             // 
@@ -212,6 +222,7 @@
             this.dexEntryPlaceholder2.Name = "dexEntryPlaceholder2";
             this.dexEntryPlaceholder2.Size = new System.Drawing.Size(200, 37);
             this.dexEntryPlaceholder2.TabIndex = 16;
+            this.dexEntryPlaceholder2.Click += new System.EventHandler(this.dexEntryPlaceholder2_Click);
             // 
             // namePlaceholder2
             // 
@@ -239,6 +250,7 @@
             this.dexEntryPlaceholder5.Name = "dexEntryPlaceholder5";
             this.dexEntryPlaceholder5.Size = new System.Drawing.Size(200, 37);
             this.dexEntryPlaceholder5.TabIndex = 17;
+            this.dexEntryPlaceholder5.Click += new System.EventHandler(this.dexEntryPlaceholder5_Click);
             // 
             // namePlaceholder5
             // 
@@ -266,6 +278,7 @@
             this.dexEntryPlaceholder4.Name = "dexEntryPlaceholder4";
             this.dexEntryPlaceholder4.Size = new System.Drawing.Size(200, 37);
             this.dexEntryPlaceholder4.TabIndex = 18;
+            this.dexEntryPlaceholder4.Click += new System.EventHandler(this.dexEntryPlaceholder4_Click);
             // 
             // namePlaceholder4
             // 
@@ -293,6 +306,7 @@
             this.dexEntryPlaceholder3.Name = "dexEntryPlaceholder3";
             this.dexEntryPlaceholder3.Size = new System.Drawing.Size(200, 37);
             this.dexEntryPlaceholder3.TabIndex = 19;
+            this.dexEntryPlaceholder3.Click += new System.EventHandler(this.dexEntryPlaceholder3_Click);
             // 
             // namePlaceholder3
             // 
@@ -312,6 +326,35 @@
             this.dexNoPlaceHolder3.TabIndex = 0;
             this.dexNoPlaceHolder3.Text = "dexNo1";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pokePicture);
+            this.panel1.Location = new System.Drawing.Point(325, 168);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(393, 222);
+            this.panel1.TabIndex = 20;
+            // 
+            // pokePicture
+            // 
+            this.pokePicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pokePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pokePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pokePicture.InitialImage = null;
+            this.pokePicture.Location = new System.Drawing.Point(151, 23);
+            this.pokePicture.Name = "pokePicture";
+            this.pokePicture.Size = new System.Drawing.Size(100, 100);
+            this.pokePicture.TabIndex = 0;
+            this.pokePicture.TabStop = false;
+            this.pokePicture.WaitOnLoad = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(834, 241);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox1.TabIndex = 21;
+            this.richTextBox1.Text = "do we want dex descriptions?\n";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +362,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(959, 454);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dexEntryPlaceholder3);
             this.Controls.Add(this.dexEntryPlaceholder4);
             this.Controls.Add(this.dexEntryPlaceholder5);
@@ -348,6 +393,8 @@
             this.dexEntryPlaceholder4.PerformLayout();
             this.dexEntryPlaceholder3.ResumeLayout(false);
             this.dexEntryPlaceholder3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pokePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +428,9 @@
         private System.Windows.Forms.Panel dexEntryPlaceholder3;
         private System.Windows.Forms.Label namePlaceholder3;
         private System.Windows.Forms.Label dexNoPlaceHolder3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pokePicture;
     }
 }
 

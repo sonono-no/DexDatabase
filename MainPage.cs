@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,17 @@ namespace DexDatabase
 {
 	public partial class MainPage : Form
 	{
-		public MainPage()
+        string connectionString;
+        SqlConnection cnn;
+		int offSet = 0; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
+        public MainPage()
 		{
 			InitializeComponent();
+			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
+			cnn = new SqlConnection(connectionString);
 
-			tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
+			loadDexEntries();
+
 		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
@@ -44,48 +51,55 @@ namespace DexDatabase
 
 		}
 
-		private void MainPage_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
-		{
-			Graphics g = e.Graphics;
-			Brush _textBrush;
-
-			// Get the item from the collection.
-			TabPage _tabPage = tabControl1.TabPages[e.Index];
-
-			// Get the real bounds for the tab rectangle.
-			Rectangle _tabBounds = tabControl1.GetTabRect(e.Index);
-
-			if (e.State == DrawItemState.Selected)
-			{
-
-				// Draw a different background color, and don't paint a focus rectangle.
-				_textBrush = new SolidBrush(Color.Red);
-				g.FillRectangle(Brushes.Gray, e.Bounds);
-			}
-			else
-			{
-				_textBrush = new System.Drawing.SolidBrush(e.ForeColor);
-				e.DrawBackground();
-			}
-
-			// Use our own font.
-			Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-			// Draw string. Center the text.
-			StringFormat _stringFlags = new StringFormat();
-			_stringFlags.Alignment = StringAlignment.Center;
-			_stringFlags.LineAlignment = StringAlignment.Center;
-			g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
-		}
-
 		private void label3_Click(object sender, EventArgs e)
 		{
 
 		}
-	}
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("tabPage1");
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+		private void loadDexEntries()
+		{
+
+			cnn.Open();
+
+            SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
+            cmdLoadDexEntries.CommandText = "SELECT dexNo, pokeName FROM POKEMON";
+            SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
+
+
+			//find a way to loop through this and a way to always be 3 digits
+			dexReader.Read();
+            dexNoPlaceHolder1.Text = dexReader[0].ToString().PadLeft(3, '0');
+			namePlaceholder1.Text = dexReader[1].ToString();
+            dexReader.Read();
+            dexNoPlaceHolder2.Text = dexReader[0].ToString().PadLeft(3, '0');
+            namePlaceholder2.Text = dexReader[1].ToString();
+            dexReader.Read();
+            dexNoPlaceHolder3.Text = dexReader[0].ToString().PadLeft(3, '0');
+            namePlaceholder3.Text = dexReader[1].ToString();
+            dexReader.Read();
+            dexNoPlaceHolder4.Text = dexReader[0].ToString().PadLeft(3, '0');
+            namePlaceholder4.Text = dexReader[1].ToString();
+            dexReader.Read();
+            dexNoPlaceHolder5.Text = dexReader[0].ToString().PadLeft(3, '0');
+            namePlaceholder5.Text = dexReader[1].ToString();
+
+            dexReader.Close();
+            cnn.Close();
+        }
+    }
 }

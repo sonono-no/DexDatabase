@@ -62,6 +62,21 @@ namespace DexDatabase
             this.panel1 = new System.Windows.Forms.Panel();
             this.pokePicture = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.nationalDexLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.speciesLabel = new System.Windows.Forms.Label();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.weightLabel = new System.Windows.Forms.Label();
+            this.abilitiesLabel = new System.Windows.Forms.Label();
+            this.currentDexNo = new System.Windows.Forms.Label();
+            this.pokeType1 = new System.Windows.Forms.Label();
+            this.pokeType2 = new System.Windows.Forms.Label();
+            this.currentSpecies = new System.Windows.Forms.Label();
+            this.currentHeight = new System.Windows.Forms.Label();
+            this.currentWeight = new System.Windows.Forms.Label();
+            this.pokeAbility1 = new System.Windows.Forms.Label();
+            this.pokeAbilityHidden = new System.Windows.Forms.Label();
+            this.pokeAbility2 = new System.Windows.Forms.Label();
             this.dexEntryPlaceholder1.SuspendLayout();
             this.dexEntryPlaceholder2.SuspendLayout();
             this.dexEntryPlaceholder5.SuspendLayout();
@@ -169,7 +184,7 @@ namespace DexDatabase
             // 
             // dexEntryPlaceholder1
             // 
-            this.dexEntryPlaceholder1.BackColor = System.Drawing.SystemColors.Info;
+            this.dexEntryPlaceholder1.BackColor = System.Drawing.Color.GreenYellow;
             this.dexEntryPlaceholder1.Controls.Add(this.namePlaceholder1);
             this.dexEntryPlaceholder1.Controls.Add(this.dexNoPlaceHolder1);
             this.dexEntryPlaceholder1.Location = new System.Drawing.Point(24, 168);
@@ -328,6 +343,21 @@ namespace DexDatabase
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pokeAbility2);
+            this.panel1.Controls.Add(this.pokeAbilityHidden);
+            this.panel1.Controls.Add(this.pokeAbility1);
+            this.panel1.Controls.Add(this.currentWeight);
+            this.panel1.Controls.Add(this.currentHeight);
+            this.panel1.Controls.Add(this.currentSpecies);
+            this.panel1.Controls.Add(this.pokeType2);
+            this.panel1.Controls.Add(this.pokeType1);
+            this.panel1.Controls.Add(this.currentDexNo);
+            this.panel1.Controls.Add(this.abilitiesLabel);
+            this.panel1.Controls.Add(this.weightLabel);
+            this.panel1.Controls.Add(this.heightLabel);
+            this.panel1.Controls.Add(this.speciesLabel);
+            this.panel1.Controls.Add(this.typeLabel);
+            this.panel1.Controls.Add(this.nationalDexLabel);
             this.panel1.Controls.Add(this.pokePicture);
             this.panel1.Location = new System.Drawing.Point(325, 168);
             this.panel1.Name = "panel1";
@@ -340,7 +370,7 @@ namespace DexDatabase
             this.pokePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pokePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pokePicture.InitialImage = null;
-            this.pokePicture.Location = new System.Drawing.Point(151, 23);
+            this.pokePicture.Location = new System.Drawing.Point(189, 73);
             this.pokePicture.Name = "pokePicture";
             this.pokePicture.Size = new System.Drawing.Size(100, 100);
             this.pokePicture.TabIndex = 0;
@@ -354,6 +384,141 @@ namespace DexDatabase
             this.richTextBox1.Size = new System.Drawing.Size(100, 96);
             this.richTextBox1.TabIndex = 21;
             this.richTextBox1.Text = "do we want dex descriptions?\n";
+            // 
+            // nationalDexLabel
+            // 
+            this.nationalDexLabel.AutoSize = true;
+            this.nationalDexLabel.Location = new System.Drawing.Point(16, 11);
+            this.nationalDexLabel.Name = "nationalDexLabel";
+            this.nationalDexLabel.Size = new System.Drawing.Size(81, 16);
+            this.nationalDexLabel.TabIndex = 1;
+            this.nationalDexLabel.Text = "National No.";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(17, 43);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(42, 16);
+            this.typeLabel.TabIndex = 2;
+            this.typeLabel.Text = "Type:";
+            // 
+            // speciesLabel
+            // 
+            this.speciesLabel.AutoSize = true;
+            this.speciesLabel.Location = new System.Drawing.Point(23, 86);
+            this.speciesLabel.Name = "speciesLabel";
+            this.speciesLabel.Size = new System.Drawing.Size(57, 16);
+            this.speciesLabel.TabIndex = 3;
+            this.speciesLabel.Text = "Species";
+            // 
+            // heightLabel
+            // 
+            this.heightLabel.AutoSize = true;
+            this.heightLabel.Location = new System.Drawing.Point(23, 129);
+            this.heightLabel.Name = "heightLabel";
+            this.heightLabel.Size = new System.Drawing.Size(46, 16);
+            this.heightLabel.TabIndex = 4;
+            this.heightLabel.Text = "Height";
+            // 
+            // weightLabel
+            // 
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Location = new System.Drawing.Point(23, 163);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(49, 16);
+            this.weightLabel.TabIndex = 5;
+            this.weightLabel.Text = "Weight";
+            // 
+            // abilitiesLabel
+            // 
+            this.abilitiesLabel.AutoSize = true;
+            this.abilitiesLabel.Location = new System.Drawing.Point(26, 203);
+            this.abilitiesLabel.Name = "abilitiesLabel";
+            this.abilitiesLabel.Size = new System.Drawing.Size(54, 16);
+            this.abilitiesLabel.TabIndex = 6;
+            this.abilitiesLabel.Text = "Abilities";
+            // 
+            // currentDexNo
+            // 
+            this.currentDexNo.AutoSize = true;
+            this.currentDexNo.Location = new System.Drawing.Point(103, 11);
+            this.currentDexNo.Name = "currentDexNo";
+            this.currentDexNo.Size = new System.Drawing.Size(49, 16);
+            this.currentDexNo.TabIndex = 7;
+            this.currentDexNo.Text = "DexNo";
+            // 
+            // pokeType1
+            // 
+            this.pokeType1.AutoSize = true;
+            this.pokeType1.Location = new System.Drawing.Point(106, 42);
+            this.pokeType1.Name = "pokeType1";
+            this.pokeType1.Size = new System.Drawing.Size(78, 16);
+            this.pokeType1.TabIndex = 8;
+            this.pokeType1.Text = "PokeType1";
+            // 
+            // pokeType2
+            // 
+            this.pokeType2.AutoSize = true;
+            this.pokeType2.Location = new System.Drawing.Point(190, 42);
+            this.pokeType2.Name = "pokeType2";
+            this.pokeType2.Size = new System.Drawing.Size(78, 16);
+            this.pokeType2.TabIndex = 9;
+            this.pokeType2.Text = "PokeType2";
+            // 
+            // currentSpecies
+            // 
+            this.currentSpecies.AutoSize = true;
+            this.currentSpecies.Location = new System.Drawing.Point(106, 85);
+            this.currentSpecies.Name = "currentSpecies";
+            this.currentSpecies.Size = new System.Drawing.Size(89, 16);
+            this.currentSpecies.TabIndex = 10;
+            this.currentSpecies.Text = "PokeSpecies";
+            // 
+            // currentHeight
+            // 
+            this.currentHeight.AutoSize = true;
+            this.currentHeight.Location = new System.Drawing.Point(106, 129);
+            this.currentHeight.Name = "currentHeight";
+            this.currentHeight.Size = new System.Drawing.Size(78, 16);
+            this.currentHeight.TabIndex = 11;
+            this.currentHeight.Text = "PokeHeight";
+            // 
+            // currentWeight
+            // 
+            this.currentWeight.AutoSize = true;
+            this.currentWeight.Location = new System.Drawing.Point(106, 163);
+            this.currentWeight.Name = "currentWeight";
+            this.currentWeight.Size = new System.Drawing.Size(81, 16);
+            this.currentWeight.TabIndex = 12;
+            this.currentWeight.Text = "PokeWeight";
+            // 
+            // pokeAbility1
+            // 
+            this.pokeAbility1.AutoSize = true;
+            this.pokeAbility1.Location = new System.Drawing.Point(106, 202);
+            this.pokeAbility1.Name = "pokeAbility1";
+            this.pokeAbility1.Size = new System.Drawing.Size(49, 16);
+            this.pokeAbility1.TabIndex = 13;
+            this.pokeAbility1.Text = "ability1";
+            // 
+            // pokeAbilityHidden
+            // 
+            this.pokeAbilityHidden.AutoSize = true;
+            this.pokeAbilityHidden.Location = new System.Drawing.Point(240, 202);
+            this.pokeAbilityHidden.Name = "pokeAbilityHidden";
+            this.pokeAbilityHidden.Size = new System.Drawing.Size(86, 16);
+            this.pokeAbilityHidden.TabIndex = 14;
+            this.pokeAbilityHidden.Text = "hidden ability";
+            // 
+            // pokeAbility2
+            // 
+            this.pokeAbility2.AutoSize = true;
+            this.pokeAbility2.Location = new System.Drawing.Point(172, 203);
+            this.pokeAbility2.Name = "pokeAbility2";
+            this.pokeAbility2.Size = new System.Drawing.Size(49, 16);
+            this.pokeAbility2.TabIndex = 15;
+            this.pokeAbility2.Text = "ability2";
             // 
             // MainPage
             // 
@@ -394,6 +559,7 @@ namespace DexDatabase
             this.dexEntryPlaceholder3.ResumeLayout(false);
             this.dexEntryPlaceholder3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -431,6 +597,21 @@ namespace DexDatabase
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pokePicture;
+        private Label abilitiesLabel;
+        private Label weightLabel;
+        private Label heightLabel;
+        private Label speciesLabel;
+        private Label typeLabel;
+        private Label nationalDexLabel;
+        private Label pokeAbility2;
+        private Label pokeAbilityHidden;
+        private Label pokeAbility1;
+        private Label currentWeight;
+        private Label currentHeight;
+        private Label currentSpecies;
+        private Label pokeType2;
+        private Label pokeType1;
+        private Label currentDexNo;
     }
 }
 

@@ -137,16 +137,16 @@ namespace DexDatabase
 
             for (int i = 0; i < 5; i++)
             {
-                if (dexReader.Read())
+
+                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
+                if (dexReader.Read() && placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0'))
                 {
-                    placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
-                    placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                        placeholderLabels[i, 1].Text = dexReader[1].ToString();
                 }
                 else
-                { //this else section is pretty sloppy
+                {
                     if (!isSearch)
                     {
-                        placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
                         placeholderLabels[i, 1].Text = "???";
                     }
                     else
@@ -156,9 +156,9 @@ namespace DexDatabase
                     }
                 }
             }
-            loadCurrentDexSprite(dexNoPlaceHolder1.Text);
             dexReader.Close();
             cnn.Close();
+            loadCurrentDexSprite(dexNoPlaceHolder1.Text);
             loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
         }
 

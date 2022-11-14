@@ -251,6 +251,7 @@ namespace DexDatabase
             this.namePlaceholder2.Size = new System.Drawing.Size(82, 16);
             this.namePlaceholder2.TabIndex = 1;
             this.namePlaceholder2.Text = "pokeName1";
+            this.namePlaceholder2.Click += new System.EventHandler(this.dexEntryPlaceholder2_Click);
             // 
             // dexNoPlaceHolder2
             // 
@@ -260,6 +261,7 @@ namespace DexDatabase
             this.dexNoPlaceHolder2.Size = new System.Drawing.Size(54, 16);
             this.dexNoPlaceHolder2.TabIndex = 0;
             this.dexNoPlaceHolder2.Text = "dexNo1";
+            this.dexNoPlaceHolder2.Click += new System.EventHandler(this.dexEntryPlaceholder2_Click);
             // 
             // dexEntryPlaceholder5
             // 
@@ -279,6 +281,7 @@ namespace DexDatabase
             this.namePlaceholder5.Size = new System.Drawing.Size(82, 16);
             this.namePlaceholder5.TabIndex = 1;
             this.namePlaceholder5.Text = "pokeName1";
+            this.namePlaceholder5.Click += new System.EventHandler(this.dexEntryPlaceholder5_Click);
             // 
             // dexNoPlaceHolder5
             // 
@@ -288,6 +291,7 @@ namespace DexDatabase
             this.dexNoPlaceHolder5.Size = new System.Drawing.Size(54, 16);
             this.dexNoPlaceHolder5.TabIndex = 0;
             this.dexNoPlaceHolder5.Text = "dexNo1";
+            this.dexNoPlaceHolder5.Click += new System.EventHandler(this.dexEntryPlaceholder5_Click);
             // 
             // dexEntryPlaceholder4
             // 
@@ -307,6 +311,7 @@ namespace DexDatabase
             this.namePlaceholder4.Size = new System.Drawing.Size(82, 16);
             this.namePlaceholder4.TabIndex = 1;
             this.namePlaceholder4.Text = "pokeName1";
+            this.namePlaceholder4.Click += new System.EventHandler(this.dexEntryPlaceholder4_Click);
             // 
             // dexNoPlaceHolder4
             // 
@@ -316,6 +321,7 @@ namespace DexDatabase
             this.dexNoPlaceHolder4.Size = new System.Drawing.Size(54, 16);
             this.dexNoPlaceHolder4.TabIndex = 0;
             this.dexNoPlaceHolder4.Text = "dexNo1";
+            this.dexNoPlaceHolder4.Click += new System.EventHandler(this.dexEntryPlaceholder4_Click);
             // 
             // dexEntryPlaceholder3
             // 
@@ -335,6 +341,7 @@ namespace DexDatabase
             this.namePlaceholder3.Size = new System.Drawing.Size(82, 16);
             this.namePlaceholder3.TabIndex = 1;
             this.namePlaceholder3.Text = "pokeName1";
+            this.namePlaceholder3.Click += new System.EventHandler(this.dexEntryPlaceholder3_Click);
             // 
             // dexNoPlaceHolder3
             // 
@@ -344,6 +351,7 @@ namespace DexDatabase
             this.dexNoPlaceHolder3.Size = new System.Drawing.Size(54, 16);
             this.dexNoPlaceHolder3.TabIndex = 0;
             this.dexNoPlaceHolder3.Text = "dexNo1";
+            this.dexNoPlaceHolder3.Click += new System.EventHandler(this.dexEntryPlaceholder3_Click);
             // 
             // panel1
             // 

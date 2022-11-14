@@ -137,24 +137,39 @@ namespace DexDatabase
 
             for (int i = 0; i < 5; i++)
             {
-
-                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
-                if (dexReader.Read() && placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0'))
+                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0'); //add dexNo reguardless
+                if (dexReader.Read()) //check for next result
                 {
-                        placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                    if (!isSearch) // make sure it's not a search
+                    {
+                        if (placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0')) //if next result matches dexNumber, add to entry
+                        {
+                            placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                        }
+                        else //else place ???
+                        {
+                            placeholderLabels[i, 1].Text = "???";
+                        }
+                    } //if isSearch, place entry reguardless of current position in dex
+                    else
+                    {
+                        placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
+                        placeholderLabels[i,1].Text= dexReader[1].ToString();
+                    }
                 }
-                else
+                else //if no next entry found
                 {
-                    if (!isSearch)
+                    if (!isSearch) // if not search, fill with ???
                     {
                         placeholderLabels[i, 1].Text = "???";
                     }
-                    else
+                    else //if isSearch, fill dexNo and pokeName with ---
                     {
                         placeholderLabels[i, 0].Text = "---";
                         placeholderLabels[i, 1].Text = "---";
                     }
                 }
+
             }
             dexReader.Close();
             cnn.Close();
@@ -165,14 +180,19 @@ namespace DexDatabase
 
 
 
-        private void loadDexEntries() // add case for search loads
+        private void loadDexEntries()
         {
-            if (!isSearch) { 
+            int potentialDexNoInput;
+            if (!isSearch) { // if not a search, do baseline display of dex entries
                 queryDexEntries($"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {baseOffset * 5}");
             }
-            else //split off into if number search for dexno, else search for type and pokename
-            {    //also change to make sure sql injections aren't possible
-                queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+            else  //else take text from search bar and use it to construct query *** NEED TO DO INJECTION PREVENTION HERE
+            {    
+                if(Int32.TryParse(SearchBar.Text, out potentialDexNoInput))//if search bar contains what can be parsed as a number (i.e. 001 or 1) do a search by dexNo
+                {
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
+                }else //else, do a query for type or name matches
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
             }
         }
         
@@ -210,7 +230,6 @@ namespace DexDatabase
             }
             else
             {
-                //
                 searchOffset++;
                 loadDexEntries();
             }

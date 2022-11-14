@@ -15,32 +15,32 @@ using System.Collections;
 // otherwise clicking on the label instead of the panel will not trigger the load
 namespace DexDatabase
 {
-	public partial class MainPage : Form
-	{
+    public partial class MainPage : Form
+    {
         string connectionString;
         SqlConnection cnn;
-		int baseOffset = 0; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
+        int baseOffset = 0; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
         int searchOffset = 0;
         bool isSearch = false;
 
 
         public MainPage()
-		{
-			InitializeComponent();
-			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
-			cnn = new SqlConnection(connectionString);
-            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\001.png");
+        {
+            InitializeComponent();
+            connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
+            cnn = new SqlConnection(connectionString);
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\1.png");
             loadDexEntries();
-            
-		}
 
-		private void textBox1_TextChanged(object sender, EventArgs e) //this is when ANY text is changed
-		{
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) //this is when ANY text is changed
+        {
             //System.Windows.Forms.MessageBox.Show("My message here");
         }
 
-		private void button1_Click(object sender, EventArgs e) //search button click
-		{
+        private void button1_Click(object sender, EventArgs e) //search button click
+        {
             //System.Windows.Forms.MessageBox.Show("My message here");
             if (SearchBar.Text != "")
             {
@@ -50,30 +50,30 @@ namespace DexDatabase
             }
             else
             {
-                isSearch= false;
+                isSearch = false;
                 loadDexEntries();
             }
         }
 
-		private void label1_Click(object sender, EventArgs e)
-		{
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void WelcomeLabel_Click(object sender, EventArgs e)
-		{
+        private void WelcomeLabel_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void pictureBox1_Click(object sender, EventArgs e)
-		{
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void label3_Click(object sender, EventArgs e)
-		{
+        private void label3_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -114,16 +114,16 @@ namespace DexDatabase
 
         private void loadCurrentDexSprite(string dexNo) //isSearch will determine whether empty entries will be continuously displayed or not
         {
-            if (File.Exists($"..\\..\\{dexNo}.png"))
-                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNo}.png");
+            if (File.Exists($"..\\..\\images\\{Int32.Parse(dexNo)}.png"))
+                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\{Int32.Parse(dexNo)}.png");
             else
-                pokePicture.BackgroundImage = Image.FromFile("..\\..\\000.png");
+                pokePicture.BackgroundImage = Image.FromFile("..\\..\\images\\000.png");
         }
 
-        private void queryDexEntries(string queryString) 
-		{
-            Label[,] placeholderLabels = new Label[,] { { dexNoPlaceHolder1, namePlaceholder1 }, { dexNoPlaceHolder2, namePlaceholder2 }, 
-                { dexNoPlaceHolder3, namePlaceholder3 }, { dexNoPlaceHolder4, namePlaceholder4 }, 
+        private void queryDexEntries(string queryString)
+        {
+            Label[,] placeholderLabels = new Label[,] { { dexNoPlaceHolder1, namePlaceholder1 }, { dexNoPlaceHolder2, namePlaceholder2 },
+                { dexNoPlaceHolder3, namePlaceholder3 }, { dexNoPlaceHolder4, namePlaceholder4 },
                 { dexNoPlaceHolder5, namePlaceholder5 }, }; //for easy access to all labels
 
 
@@ -131,30 +131,45 @@ namespace DexDatabase
 
             SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
             cmdLoadDexEntries.CommandText = queryString;
-            SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
+            cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
 
-            //int framesRequired = (int)Math.Ceiling(currentQueryResults.Count() / 5.0); //ceiling for later
+            SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
 
             for (int i = 0; i < 5; i++)
             {
-
-                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
-                if (dexReader.Read() && placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0'))
+                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0'); //add dexNo reguardless
+                if (dexReader.Read()) //check for next result
                 {
+                    if (!isSearch) // make sure it's not a search
+                    {
+                        if (placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0')) //if next result matches dexNumber, add to entry
+                        {
+                            placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                        }
+                        else //else place ???
+                        {
+                            placeholderLabels[i, 1].Text = "???";
+                        }
+                    } //if isSearch, place entry reguardless of current position in dex
+                    else
+                    {
+                        placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
                         placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                    }
                 }
-                else
+                else //if no next entry found
                 {
-                    if (!isSearch)
+                    if (!isSearch) // if not search, fill with ???
                     {
                         placeholderLabels[i, 1].Text = "???";
                     }
-                    else
+                    else //if isSearch, fill dexNo and pokeName with ---
                     {
                         placeholderLabels[i, 0].Text = "---";
                         placeholderLabels[i, 1].Text = "---";
                     }
                 }
+
             }
             dexReader.Close();
             cnn.Close();
@@ -165,20 +180,27 @@ namespace DexDatabase
 
 
 
-        private void loadDexEntries() // add case for search loads
+        private void loadDexEntries()
         {
-            if (!isSearch) { 
+            int potentialDexNoInput;
+            if (!isSearch)
+            { // if not a search, do baseline display of dex entries
                 queryDexEntries($"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {baseOffset * 5}");
             }
-            else //split off into if number search for dexno, else search for type and pokename
-            {    //also change to make sure sql injections aren't possible
-                queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+            else  //else take text from search bar and use it to construct query *** NEED TO DO INJECTION PREVENTION HERE
+            {
+                if (Int32.TryParse(SearchBar.Text, out potentialDexNoInput))//if search bar contains what can be parsed as a number (i.e. 001 or 1) do a search by dexNo
+                {
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
+                }
+                else //else, do a query for type or name matches
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = @Search OR type2 = @Search  OR pokeName = @Search)");
             }
         }
-        
 
 
-        
+
+
 
 
 
@@ -191,7 +213,8 @@ namespace DexDatabase
                     baseOffset--;
                     loadDexEntries();
                 }
-            }else
+            }
+            else
             {
                 if (searchOffset > 0)
                 {
@@ -210,7 +233,6 @@ namespace DexDatabase
             }
             else
             {
-                //
                 searchOffset++;
                 loadDexEntries();
             }
@@ -218,7 +240,7 @@ namespace DexDatabase
 
 
         private void loadCurrentEntry(string dexNo, string pokeName) //function for loading all relevant data to standard entry view
-                                                    //now add for case where there isn't a valid current entry
+                                                                     //now add for case where there isn't a valid current entry
         {
             if (pokeName == "???")// probably just change the entire current dex entry display to a questionmark
             {
@@ -232,7 +254,8 @@ namespace DexDatabase
                 pokeAbility2.Text = null;
                 pokeAbilityHidden.Text = null;
             }
-            else if (pokeName == "---"){
+            else if (pokeName == "---")
+            {
                 currentDexNo.Text = "---";
                 currentSpecies.Text = null;
                 currentHeight.Text = null;
@@ -242,7 +265,9 @@ namespace DexDatabase
                 pokeAbility1.Text = null;
                 pokeAbility2.Text = null;
                 pokeAbilityHidden.Text = null;
-            }else{ 
+            }
+            else
+            {
                 //update text for all other displayed information
                 //dexno, type, species, height, weight, abilities
                 // open sql connection for queries
@@ -312,9 +337,9 @@ namespace DexDatabase
 
         }
 
-		private void richTextBox1_TextChanged(object sender, EventArgs e)
-		{
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+    }
 }

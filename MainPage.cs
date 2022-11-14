@@ -29,7 +29,7 @@ namespace DexDatabase
 			InitializeComponent();
 			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
 			cnn = new SqlConnection(connectionString);
-            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\001.png");
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\1.png");
             loadDexEntries();
             
 		}
@@ -114,10 +114,10 @@ namespace DexDatabase
 
         private void loadCurrentDexSprite(string dexNo) //isSearch will determine whether empty entries will be continuously displayed or not
         {
-            if (File.Exists($"..\\..\\{dexNo}.png"))
-                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNo}.png");
+            if (File.Exists($"..\\..\\images\\{Int32.Parse(dexNo)}.png"))
+                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\{Int32.Parse(dexNo)}.png");
             else
-                pokePicture.BackgroundImage = Image.FromFile("..\\..\\000.png");
+                pokePicture.BackgroundImage = Image.FromFile("..\\..\\images\\000.png");
         }
 
         private void queryDexEntries(string queryString) 
@@ -134,8 +134,6 @@ namespace DexDatabase
             cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
 
             SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
-
-            //int framesRequired = (int)Math.Ceiling(currentQueryResults.Count() / 5.0); //ceiling for later
 
             for (int i = 0; i < 5; i++)
             {

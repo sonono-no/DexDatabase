@@ -85,30 +85,30 @@ namespace DexDatabase
         private void dexEntryPlaceholder1_Click(object sender, EventArgs e)
         {
             loadCurrentDexSprite(dexNoPlaceHolder1.Text);
-            loadCurrentEntry(dexNoPlaceHolder1.Text);
+            loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
 
         }
 
         private void dexEntryPlaceholder2_Click(object sender, EventArgs e)
         {
             loadCurrentDexSprite(dexNoPlaceHolder2.Text);
-            loadCurrentEntry(dexNoPlaceHolder2.Text);
+            loadCurrentEntry(dexNoPlaceHolder2.Text, namePlaceholder2.Text);
         }
 
         private void dexEntryPlaceholder3_Click(object sender, EventArgs e)
         {
             loadCurrentDexSprite(dexNoPlaceHolder3.Text);
-            loadCurrentEntry(dexNoPlaceHolder3.Text);
+            loadCurrentEntry(dexNoPlaceHolder3.Text, namePlaceholder3.Text);
         }
         private void dexEntryPlaceholder4_Click(object sender, EventArgs e)
         {
             loadCurrentDexSprite(dexNoPlaceHolder4.Text);
-            loadCurrentEntry(dexNoPlaceHolder4.Text);
+            loadCurrentEntry(dexNoPlaceHolder4.Text, namePlaceholder4.Text);
         }
         private void dexEntryPlaceholder5_Click(object sender, EventArgs e)
         {
             loadCurrentDexSprite(dexNoPlaceHolder5.Text);
-            loadCurrentEntry(dexNoPlaceHolder5.Text);
+            loadCurrentEntry(dexNoPlaceHolder5.Text, namePlaceholder5.Text);
         }
 
 
@@ -159,7 +159,7 @@ namespace DexDatabase
             loadCurrentDexSprite(dexNoPlaceHolder1.Text);
             dexReader.Close();
             cnn.Close();
-            loadCurrentEntry(dexNoPlaceHolder1.Text);
+            loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
         }
 
 
@@ -217,10 +217,10 @@ namespace DexDatabase
         }
 
 
-        private void loadCurrentEntry(string dexNo) //function for loading all relevant data to standard entry view
+        private void loadCurrentEntry(string dexNo, string pokeName) //function for loading all relevant data to standard entry view
                                                     //now add for case where there isn't a valid current entry
         {
-            if (dexNo == "???")// probably just change the entire current dex entry display to a questionmark
+            if (pokeName == "???")// probably just change the entire current dex entry display to a questionmark
             {
                 currentDexNo.Text = "???";
                 currentSpecies.Text = "Undiscovered";
@@ -232,7 +232,7 @@ namespace DexDatabase
                 pokeAbility2.Text = null;
                 pokeAbilityHidden.Text = null;
             }
-            else if (dexNo == "---"){
+            else if (pokeName == "---"){
                 currentDexNo.Text = "---";
                 currentSpecies.Text = null;
                 currentHeight.Text = null;

@@ -180,14 +180,19 @@ namespace DexDatabase
 
 
 
-        private void loadDexEntries() // add case for search loads
+        private void loadDexEntries()
         {
-            if (!isSearch) { 
+            int potentialDexNoInput;
+            if (!isSearch) { // if not a search, do baseline display of dex entries
                 queryDexEntries($"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {baseOffset * 5}");
             }
-            else //split off into if number search for dexno, else search for type and pokename
-            {    //also change to make sure sql injections aren't possible
-                queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+            else  //else take text from search bar and use it to construct query *** NEED TO DO INJECTION PREVENTION HERE
+            {    
+                if(Int32.TryParse(SearchBar.Text, out potentialDexNoInput))//if search bar contains what can be parsed as a number (i.e. 001 or 1) do a search by dexNo
+                {
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
+                }else //else, do a query for type or name matches
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
             }
         }
         
@@ -225,7 +230,6 @@ namespace DexDatabase
             }
             else
             {
-                //
                 searchOffset++;
                 loadDexEntries();
             }

@@ -29,7 +29,7 @@ namespace DexDatabase
 			InitializeComponent();
 			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
 			cnn = new SqlConnection(connectionString);
-            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\001.png");
+            pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\1.png");
             loadDexEntries();
             
 		}
@@ -114,10 +114,10 @@ namespace DexDatabase
 
         private void loadCurrentDexSprite(string dexNo) //isSearch will determine whether empty entries will be continuously displayed or not
         {
-            if (File.Exists($"..\\..\\{dexNo}.png"))
-                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNo}.png");
+            if (File.Exists($"..\\..\\images\\{Int32.Parse(dexNo)}.png"))
+                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\{Int32.Parse(dexNo)}.png");
             else
-                pokePicture.BackgroundImage = Image.FromFile("..\\..\\000.png");
+                pokePicture.BackgroundImage = Image.FromFile("..\\..\\images\\000.png");
         }
 
         private void queryDexEntries(string queryString) 
@@ -131,9 +131,9 @@ namespace DexDatabase
 
             SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
             cmdLoadDexEntries.CommandText = queryString;
-            SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
+            cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
 
-            //int framesRequired = (int)Math.Ceiling(currentQueryResults.Count() / 5.0); //ceiling for later
+            SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
 
             for (int i = 0; i < 5; i++)
             {
@@ -192,7 +192,7 @@ namespace DexDatabase
                 {
                     queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
                 }else //else, do a query for type or name matches
-                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = @Search OR type2 = @Search  OR pokeName = @Search)");
             }
         }
         

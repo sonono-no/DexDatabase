@@ -137,24 +137,39 @@ namespace DexDatabase
 
             for (int i = 0; i < 5; i++)
             {
-
-                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
-                if (dexReader.Read() && placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0'))
+                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0'); //add dexNo reguardless
+                if (dexReader.Read()) //check for next result
                 {
-                        placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                    if (!isSearch) // make sure it's not a search
+                    {
+                        if (placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0')) //if next result matches dexNumber, add to entry
+                        {
+                            placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                        }
+                        else //else place ???
+                        {
+                            placeholderLabels[i, 1].Text = "???";
+                        }
+                    } //if isSearch, place entry reguardless of current position in dex
+                    else
+                    {
+                        placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
+                        placeholderLabels[i,1].Text= dexReader[1].ToString();
+                    }
                 }
-                else
+                else //if no next entry found
                 {
-                    if (!isSearch)
+                    if (!isSearch) // if not search, fill with ???
                     {
                         placeholderLabels[i, 1].Text = "???";
                     }
-                    else
+                    else //if isSearch, fill dexNo and pokeName with ---
                     {
                         placeholderLabels[i, 0].Text = "---";
                         placeholderLabels[i, 1].Text = "---";
                     }
                 }
+
             }
             dexReader.Close();
             cnn.Close();

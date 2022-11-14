@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 // on MainPage.Designer.cs, do overloads for click trigger on all members on dexEntryPlaceholder panels. EX: this.namePlaceholder1.Click += new System.EventHandler(this.dexEntryPlaceholder1_Click);
 // otherwise clicking on the label instead of the panel will not trigger the load
@@ -18,7 +19,11 @@ namespace DexDatabase
 	{
         string connectionString;
         SqlConnection cnn;
-		int offSet = 1; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
+		int baseOffset = 0; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
+        int searchOffset = 0;
+        bool isSearch = false;
+
+
         public MainPage()
 		{
 			InitializeComponent();
@@ -29,15 +34,26 @@ namespace DexDatabase
             
 		}
 
-		private void textBox1_TextChanged(object sender, EventArgs e)
+		private void textBox1_TextChanged(object sender, EventArgs e) //this is when ANY text is changed
 		{
+            //System.Windows.Forms.MessageBox.Show("My message here");
+        }
 
-		}
-
-		private void button1_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e) //search button click
 		{
-
-		}
+            //System.Windows.Forms.MessageBox.Show("My message here");
+            if (SearchBar.Text != "")
+            {
+                isSearch = true;
+                searchOffset = 0;
+                loadDexEntries();
+            }
+            else
+            {
+                isSearch= false;
+                loadDexEntries();
+            }
+        }
 
 		private void label1_Click(object sender, EventArgs e)
 		{
@@ -96,7 +112,7 @@ namespace DexDatabase
         }
 
 
-        private void loadCurrentDexSprite(string dexNo)
+        private void loadCurrentDexSprite(string dexNo) //isSearch will determine whether empty entries will be continuously displayed or not
         {
             if (File.Exists($"..\\..\\{dexNo}.png"))
                 pokePicture.BackgroundImage = Image.FromFile($"..\\..\\{dexNo}.png");
@@ -104,28 +120,40 @@ namespace DexDatabase
                 pokePicture.BackgroundImage = Image.FromFile("..\\..\\000.png");
         }
 
-        private void loadDexEntries()
+        private void queryDexEntries(string queryString) 
 		{
-            
-			cnn.Open();
+            Label[,] placeholderLabels = new Label[,] { { dexNoPlaceHolder1, namePlaceholder1 }, { dexNoPlaceHolder2, namePlaceholder2 }, 
+                { dexNoPlaceHolder3, namePlaceholder3 }, { dexNoPlaceHolder4, namePlaceholder4 }, 
+                { dexNoPlaceHolder5, namePlaceholder5 }, }; //for easy access to all labels
+
+
+            cnn.Open();
 
             SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
-            cmdLoadDexEntries.CommandText = $"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {offSet*5}"; //change to adapt to current offset
+            cmdLoadDexEntries.CommandText = queryString;
             SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
 
-            var placeholderLabels = new List<Label> { dexNoPlaceHolder1, namePlaceholder1, dexNoPlaceHolder2, namePlaceholder2, dexNoPlaceHolder3, namePlaceholder3, dexNoPlaceHolder4, namePlaceholder4,  dexNoPlaceHolder5, namePlaceholder5 };
+            //int framesRequired = (int)Math.Ceiling(currentQueryResults.Count() / 5.0); //ceiling for later
 
-            for(int i = 0; i < 10; i = i+2)
+            for (int i = 0; i < 5; i++)
             {
                 if (dexReader.Read())
                 {
-                    placeholderLabels[i].Text = dexReader[0].ToString().PadLeft(3, '0');
-                    placeholderLabels[i + 1].Text = dexReader[1].ToString();
+                    placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
+                    placeholderLabels[i, 1].Text = dexReader[1].ToString();
                 }
                 else
                 { //this else section is pretty sloppy
-                    placeholderLabels[i].Text = $"{offSet*5 + (i+2)/2}".PadLeft(3, '0');
-                    placeholderLabels[i + 1].Text = "???";
+                    if (!isSearch)
+                    {
+                        placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0');
+                        placeholderLabels[i, 1].Text = "???";
+                    }
+                    else
+                    {
+                        placeholderLabels[i, 0].Text = "---";
+                        placeholderLabels[i, 1].Text = "---";
+                    }
                 }
             }
             loadCurrentDexSprite(dexNoPlaceHolder1.Text);
@@ -135,9 +163,64 @@ namespace DexDatabase
         }
 
 
-        private void loadCurrentEntry(string dexNo) //now add for case where there isn't a valid current entry
+
+
+        private void loadDexEntries() // add case for search loads
         {
-            if (namePlaceholder1.Text == "???")// probably just change the entire current dex entry display to a questionmark
+            if (!isSearch) { 
+                queryDexEntries($"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {baseOffset * 5}");
+            }
+            else //split off into if number search for dexno, else search for type and pokename
+            {    //also change to make sure sql injections aren't possible
+                queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+            }
+        }
+        
+
+
+        
+
+
+
+        private void testUpButton_Click(object sender, EventArgs e)
+        {
+            if (!isSearch)
+            {
+                if (baseOffset > 0)
+                {
+                    baseOffset--;
+                    loadDexEntries();
+                }
+            }else
+            {
+                if (searchOffset > 0)
+                {
+                    searchOffset--;
+                    loadDexEntries();
+                }
+            }
+        }
+
+        private void testDownButton_Click(object sender, EventArgs e)
+        {
+            if (!isSearch)
+            {
+                baseOffset++;
+                loadDexEntries();
+            }
+            else
+            {
+                //
+                searchOffset++;
+                loadDexEntries();
+            }
+        }
+
+
+        private void loadCurrentEntry(string dexNo) //function for loading all relevant data to standard entry view
+                                                    //now add for case where there isn't a valid current entry
+        {
+            if (dexNo == "???")// probably just change the entire current dex entry display to a questionmark
             {
                 currentDexNo.Text = "???";
                 currentSpecies.Text = "Undiscovered";
@@ -148,10 +231,18 @@ namespace DexDatabase
                 pokeAbility1.Text = "Undiscovered";
                 pokeAbility2.Text = null;
                 pokeAbilityHidden.Text = null;
-
             }
-            else
-            {
+            else if (dexNo == "---"){
+                currentDexNo.Text = "---";
+                currentSpecies.Text = null;
+                currentHeight.Text = null;
+                currentWeight.Text = null;
+                pokeType1.Text = null;
+                pokeType2.Text = null;
+                pokeAbility1.Text = null;
+                pokeAbility2.Text = null;
+                pokeAbilityHidden.Text = null;
+            }else{ 
                 //update text for all other displayed information
                 //dexno, type, species, height, weight, abilities
                 // open sql connection for queries
@@ -214,24 +305,11 @@ namespace DexDatabase
             }
         }
 
+
+
         private void loadCurrentEntryExtended() // for extended view in the future
         {
 
-        }
-
-        private void testUpButton_Click(object sender, EventArgs e)
-        {
-            if(offSet > 0)
-            {
-                offSet--;
-                loadDexEntries();
-            }
-        }
-
-        private void testDownButton_Click(object sender, EventArgs e)
-        {
-            offSet++;
-            loadDexEntries();
         }
     }
 }

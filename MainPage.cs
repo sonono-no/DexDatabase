@@ -25,10 +25,11 @@ namespace DexDatabase
 
 
         public MainPage()
-        {
-            InitializeComponent();
-            connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
-            cnn = new SqlConnection(connectionString);
+		{
+			InitializeComponent();
+			connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
+			cnn = new SqlConnection(connectionString);
+
             pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\1.png");
             loadDexEntries();
 
@@ -154,7 +155,7 @@ namespace DexDatabase
                     else
                     {
                         placeholderLabels[i, 0].Text = dexReader[0].ToString().PadLeft(3, '0');
-                        placeholderLabels[i, 1].Text = dexReader[1].ToString();
+                        placeholderLabels[i,1].Text= dexReader[1].ToString();
                     }
                 }
                 else //if no next entry found
@@ -183,17 +184,15 @@ namespace DexDatabase
         private void loadDexEntries()
         {
             int potentialDexNoInput;
-            if (!isSearch)
-            { // if not a search, do baseline display of dex entries
+            if (!isSearch) { // if not a search, do baseline display of dex entries
                 queryDexEntries($"SELECT dexNo, pokeName FROM POKEMON WHERE dexNo > {baseOffset * 5}");
             }
             else  //else take text from search bar and use it to construct query *** NEED TO DO INJECTION PREVENTION HERE
-            {
-                if (Int32.TryParse(SearchBar.Text, out potentialDexNoInput))//if search bar contains what can be parsed as a number (i.e. 001 or 1) do a search by dexNo
+            {    
+                if(Int32.TryParse(SearchBar.Text, out potentialDexNoInput))//if search bar contains what can be parsed as a number (i.e. 001 or 1) do a search by dexNo
                 {
                     queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
-                }
-                else //else, do a query for type or name matches
+                }else //else, do a query for type or name matches
                     queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = @Search OR type2 = @Search  OR pokeName = @Search)");
             }
         }

@@ -32,6 +32,7 @@ namespace DexDatabase
 		/// </summary>
 		private void InitializeComponent()
 		{
+
 			this.SearchBar = new System.Windows.Forms.TextBox();
 			this.SearchButton = new System.Windows.Forms.Button();
 			this.DexLabel = new System.Windows.Forms.Label();
@@ -625,6 +626,7 @@ namespace DexDatabase
 			((System.ComponentModel.ISupportInitialize)(this.pokePicture)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
 
 		}
 

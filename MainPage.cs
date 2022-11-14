@@ -131,6 +131,8 @@ namespace DexDatabase
 
             SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
             cmdLoadDexEntries.CommandText = queryString;
+            cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
+
             SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
 
             //int framesRequired = (int)Math.Ceiling(currentQueryResults.Count() / 5.0); //ceiling for later
@@ -192,7 +194,7 @@ namespace DexDatabase
                 {
                     queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON\r\nWHERE dexNo = {potentialDexNoInput}");
                 }else //else, do a query for type or name matches
-                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = '{SearchBar.Text}' OR type2 = '{SearchBar.Text}'  OR pokeName = '{SearchBar.Text}')");
+                    queryDexEntries($"SELECT dexNo, pokeName\r\nFROM POKEMON JOIN SECONDARY_TYPE ON dexNo = dexNumber\r\nWHERE dexNo > {searchOffset * 5} AND( type = @Search OR type2 = @Search  OR pokeName = @Search)");
             }
         }
         

@@ -51,13 +51,9 @@
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.StatsLabel = new System.Windows.Forms.Label();
 			this.BreedingLabel = new System.Windows.Forms.Label();
-			this.StrengthLabel = new System.Windows.Forms.Label();
-			this.WeaknessLabel = new System.Windows.Forms.Label();
 			this.EvolutionsLabel = new System.Windows.Forms.Label();
 			this.StatsBox = new System.Windows.Forms.TextBox();
 			this.BreedingBox = new System.Windows.Forms.TextBox();
-			this.StrengthBox = new System.Windows.Forms.TextBox();
-			this.WeaknessBox = new System.Windows.Forms.TextBox();
 			this.NextEvoBox = new System.Windows.Forms.TextBox();
 			this.PrevEvoBox = new System.Windows.Forms.TextBox();
 			this.ImageLabel = new System.Windows.Forms.Label();
@@ -274,19 +270,15 @@
 			this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.groupBox3.Controls.Add(this.PrevEvoBox);
 			this.groupBox3.Controls.Add(this.NextEvoBox);
-			this.groupBox3.Controls.Add(this.WeaknessBox);
-			this.groupBox3.Controls.Add(this.StrengthBox);
 			this.groupBox3.Controls.Add(this.BreedingBox);
 			this.groupBox3.Controls.Add(this.StatsBox);
 			this.groupBox3.Controls.Add(this.EvolutionsLabel);
-			this.groupBox3.Controls.Add(this.WeaknessLabel);
-			this.groupBox3.Controls.Add(this.StrengthLabel);
 			this.groupBox3.Controls.Add(this.BreedingLabel);
 			this.groupBox3.Controls.Add(this.StatsLabel);
 			this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
-			this.groupBox3.Location = new System.Drawing.Point(352, 144);
+			this.groupBox3.Location = new System.Drawing.Point(352, 189);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(314, 227);
+			this.groupBox3.Size = new System.Drawing.Size(314, 182);
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Other Info";
@@ -311,31 +303,11 @@
 			this.BreedingLabel.TabIndex = 1;
 			this.BreedingLabel.Text = "Breeding Info";
 			// 
-			// StrengthLabel
-			// 
-			this.StrengthLabel.AutoSize = true;
-			this.StrengthLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.StrengthLabel.Location = new System.Drawing.Point(13, 103);
-			this.StrengthLabel.Name = "StrengthLabel";
-			this.StrengthLabel.Size = new System.Drawing.Size(47, 13);
-			this.StrengthLabel.TabIndex = 2;
-			this.StrengthLabel.Text = "Strength";
-			// 
-			// WeaknessLabel
-			// 
-			this.WeaknessLabel.AutoSize = true;
-			this.WeaknessLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.WeaknessLabel.Location = new System.Drawing.Point(13, 138);
-			this.WeaknessLabel.Name = "WeaknessLabel";
-			this.WeaknessLabel.Size = new System.Drawing.Size(58, 13);
-			this.WeaknessLabel.TabIndex = 3;
-			this.WeaknessLabel.Text = "Weakness";
-			// 
 			// EvolutionsLabel
 			// 
 			this.EvolutionsLabel.AutoSize = true;
 			this.EvolutionsLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.EvolutionsLabel.Location = new System.Drawing.Point(15, 172);
+			this.EvolutionsLabel.Location = new System.Drawing.Point(15, 110);
 			this.EvolutionsLabel.Name = "EvolutionsLabel";
 			this.EvolutionsLabel.Size = new System.Drawing.Size(56, 13);
 			this.EvolutionsLabel.TabIndex = 4;
@@ -357,25 +329,9 @@
 			this.BreedingBox.TabIndex = 6;
 			this.BreedingBox.Text = "Insert Breeding";
 			// 
-			// StrengthBox
-			// 
-			this.StrengthBox.Location = new System.Drawing.Point(134, 100);
-			this.StrengthBox.Name = "StrengthBox";
-			this.StrengthBox.Size = new System.Drawing.Size(100, 20);
-			this.StrengthBox.TabIndex = 7;
-			this.StrengthBox.Text = "Insert Strength";
-			// 
-			// WeaknessBox
-			// 
-			this.WeaknessBox.Location = new System.Drawing.Point(134, 138);
-			this.WeaknessBox.Name = "WeaknessBox";
-			this.WeaknessBox.Size = new System.Drawing.Size(100, 20);
-			this.WeaknessBox.TabIndex = 8;
-			this.WeaknessBox.Text = "Insert Weakness";
-			// 
 			// NextEvoBox
 			// 
-			this.NextEvoBox.Location = new System.Drawing.Point(134, 201);
+			this.NextEvoBox.Location = new System.Drawing.Point(134, 149);
 			this.NextEvoBox.Name = "NextEvoBox";
 			this.NextEvoBox.Size = new System.Drawing.Size(124, 20);
 			this.NextEvoBox.TabIndex = 9;
@@ -383,7 +339,7 @@
 			// 
 			// PrevEvoBox
 			// 
-			this.PrevEvoBox.Location = new System.Drawing.Point(134, 172);
+			this.PrevEvoBox.Location = new System.Drawing.Point(134, 110);
 			this.PrevEvoBox.Name = "PrevEvoBox";
 			this.PrevEvoBox.Size = new System.Drawing.Size(124, 20);
 			this.PrevEvoBox.TabIndex = 10;
@@ -392,7 +348,7 @@
 			// ImageLabel
 			// 
 			this.ImageLabel.AutoSize = true;
-			this.ImageLabel.Location = new System.Drawing.Point(365, 73);
+			this.ImageLabel.Location = new System.Drawing.Point(388, 73);
 			this.ImageLabel.Name = "ImageLabel";
 			this.ImageLabel.Size = new System.Drawing.Size(76, 13);
 			this.ImageLabel.TabIndex = 7;
@@ -400,7 +356,7 @@
 			// 
 			// ImageLinkBox
 			// 
-			this.ImageLinkBox.Location = new System.Drawing.Point(447, 73);
+			this.ImageLinkBox.Location = new System.Drawing.Point(512, 73);
 			this.ImageLinkBox.Name = "ImageLinkBox";
 			this.ImageLinkBox.Size = new System.Drawing.Size(118, 20);
 			this.ImageLinkBox.TabIndex = 8;
@@ -408,7 +364,7 @@
 			// 
 			// pictureBox
 			// 
-			this.pictureBox.Location = new System.Drawing.Point(584, 55);
+			this.pictureBox.Location = new System.Drawing.Point(467, 107);
 			this.pictureBox.Name = "pictureBox";
 			this.pictureBox.Size = new System.Drawing.Size(82, 72);
 			this.pictureBox.TabIndex = 9;
@@ -462,13 +418,9 @@
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.Label BreedingLabel;
 		private System.Windows.Forms.Label StatsLabel;
-		private System.Windows.Forms.Label WeaknessLabel;
-		private System.Windows.Forms.Label StrengthLabel;
 		private System.Windows.Forms.Label EvolutionsLabel;
 		private System.Windows.Forms.TextBox PrevEvoBox;
 		private System.Windows.Forms.TextBox NextEvoBox;
-		private System.Windows.Forms.TextBox WeaknessBox;
-		private System.Windows.Forms.TextBox StrengthBox;
 		private System.Windows.Forms.TextBox BreedingBox;
 		private System.Windows.Forms.TextBox StatsBox;
 		private System.Windows.Forms.Label ImageLabel;

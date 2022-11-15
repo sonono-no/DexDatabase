@@ -359,5 +359,10 @@ namespace DexDatabase
         {
             foreach (Panel pan in panels) { pan.BackColor = Color.White; }
         }
-    }
+
+		private void CaughtText_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

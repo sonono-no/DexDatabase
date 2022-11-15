@@ -22,16 +22,21 @@ namespace DexDatabase
         int baseOffset = 0; //this will mark the increment of 10 (or 5 in early development) that the main page is currently on. changed by arrow keys
         int searchOffset = 0;
         bool isSearch = false;
+        Panel[] panels;
+        Label[,] placeholderLabels;
 
 
         public MainPage()
         {
             InitializeComponent();
+            panels = new Panel[5] { dexEntryPlaceholder1, dexEntryPlaceholder2, dexEntryPlaceholder3, dexEntryPlaceholder4, dexEntryPlaceholder5 };
+            placeholderLabels = new Label[,] { { dexNoPlaceHolder1, namePlaceholder1 }, { dexNoPlaceHolder2, namePlaceholder2 },
+                { dexNoPlaceHolder3, namePlaceholder3 }, { dexNoPlaceHolder4, namePlaceholder4 },
+                { dexNoPlaceHolder5, namePlaceholder5 }, }; //for easy access to all labels
             connectionString = "Data Source=SILVER;Initial Catalog=Pokedex_Proto;Integrated Security=True";
             cnn = new SqlConnection(connectionString);
             pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\1.png");
             loadDexEntries();
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) //this is when ANY text is changed
@@ -85,25 +90,34 @@ namespace DexDatabase
         private void dexEntryPlaceholder1_Click(object sender, EventArgs e)
         {
             loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
-
+            clearSelectionColor();
+            dexEntryPlaceholder1.BackColor = Color.LightCoral;
         }
 
         private void dexEntryPlaceholder2_Click(object sender, EventArgs e)
         {
             loadCurrentEntry(dexNoPlaceHolder2.Text, namePlaceholder2.Text);
+            clearSelectionColor();
+            dexEntryPlaceholder2.BackColor = Color.LightCoral;
         }
 
         private void dexEntryPlaceholder3_Click(object sender, EventArgs e)
         {
             loadCurrentEntry(dexNoPlaceHolder3.Text, namePlaceholder3.Text);
+            clearSelectionColor();
+            dexEntryPlaceholder3.BackColor = Color.LightCoral;
         }
         private void dexEntryPlaceholder4_Click(object sender, EventArgs e)
         {
             loadCurrentEntry(dexNoPlaceHolder4.Text, namePlaceholder4.Text);
+            clearSelectionColor();
+            dexEntryPlaceholder4.BackColor = Color.LightCoral;
         }
         private void dexEntryPlaceholder5_Click(object sender, EventArgs e)
         {
-            loadCurrentEntry(dexNoPlaceHolder5.Text, namePlaceholder5.Text);
+            loadCurrentEntry(dexNoPlaceHolder5.Text, namePlaceholder5.Text); 
+            clearSelectionColor();
+            dexEntryPlaceholder5.BackColor = Color.LightCoral;
         }
 
 
@@ -175,6 +189,8 @@ namespace DexDatabase
             cnn.Close();
             loadCurrentDexSprite(dexNoPlaceHolder1.Text);
             loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
+            clearSelectionColor();
+            dexEntryPlaceholder1.BackColor= Color.LightCoral;
         }
 
 
@@ -339,9 +355,9 @@ namespace DexDatabase
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void clearSelectionColor()
         {
-
+            foreach (Panel pan in panels) { pan.BackColor = Color.White; }
         }
     }
 }

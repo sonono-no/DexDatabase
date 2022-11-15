@@ -24,6 +24,7 @@ namespace DexDatabase
         bool isSearch = false;
         Panel[] panels;
         Label[,] placeholderLabels;
+        PokePage extendedView = new PokePage();
 
 
         public MainPage()
@@ -257,6 +258,7 @@ namespace DexDatabase
 
         private void loadCurrentEntry(string dexNo, string pokeName) //function for loading all relevant data to standard entry view                                                      
         {
+
             if (pokeName == "???")// probably just change the entire current dex entry display to a questionmark
             {
                 loadCurrentDexSprite("000");
@@ -291,10 +293,6 @@ namespace DexDatabase
                 // open sql connection for queries
                 cnn.Open();
 
-                //split from just one query due to multiple entries per 1 dexno in hasability and pokemon type
-                /*wouldve been SELECT Species, Height, Weight, Ability, Type
-                FROM POKEMON JOIN [POKEMON TYPE] ON dexNo = [POKEMON TYPE].dexNumber JOIN [HAS ABILITY] ON dexNo = [HAS ABILITY].dexNumber*/
-
                 //query for species height weight
                 SqlCommand cmdLoadMainDexData = cnn.CreateCommand();
                 cmdLoadMainDexData.CommandText = $"SELECT Species, Height, Weight, Type\r\nFROM POKEMON \r\nWHERE dexNo ={dexNo} ";
@@ -313,7 +311,11 @@ namespace DexDatabase
                 cmdLoadMainDexData.CommandText = $"SELECT type2\r\nFROM SECONDARY_TYPE\r\nWHERE dexNumber = {dexNo} ";
                 dexReader = cmdLoadMainDexData.ExecuteReader();
                 if (dexReader.Read())
+                {
                     pokeType2.Text = dexReader[0].ToString();
+                }
+                else
+                    pokeType2.Text = null;
                 dexReader.Close();
 
                 //query for abilities and store in gui
@@ -340,6 +342,9 @@ namespace DexDatabase
                             break;
                     }
                 }
+
+                // add code to fill extended view with current info
+
                 dexReader.Close();
 
 
@@ -350,11 +355,6 @@ namespace DexDatabase
 
 
 
-        private void loadCurrentEntryExtended() // for extended view in the future
-        {
-
-        }
-
         private void clearSelectionColor()
         {
             foreach (Panel pan in panels) { pan.BackColor = Color.White; }
@@ -364,5 +364,19 @@ namespace DexDatabase
 		{
 
 		}
-	}
+
+        private void expandButton_Click(object sender, EventArgs e)
+        {
+            // only moved here for now
+            if (!Application.OpenForms.OfType<PokePage>().Any())
+            {
+                extendedView = new PokePage();
+                extendedView.UpdateInfo(currentDexNo.Text);
+                extendedView.Show(this);
+            }
+
+            extendedView.UpdateInfo(currentDexNo.Text);
+
+        }
+    }
 }

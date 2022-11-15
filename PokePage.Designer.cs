@@ -56,7 +56,6 @@
 			this.Evo1 = new System.Windows.Forms.Label();
 			this.PokeWeakness = new System.Windows.Forms.Label();
 			this.Evo2 = new System.Windows.Forms.Label();
-			this.Evo3 = new System.Windows.Forms.Label();
 			this.OtherInfo = new System.Windows.Forms.GroupBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -307,7 +306,7 @@
 			this.PokeBaseStats.AutoSize = true;
 			this.PokeBaseStats.BackColor = System.Drawing.Color.White;
 			this.PokeBaseStats.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.PokeBaseStats.Location = new System.Drawing.Point(148, 31);
+			this.PokeBaseStats.Location = new System.Drawing.Point(172, 31);
 			this.PokeBaseStats.Name = "PokeBaseStats";
 			this.PokeBaseStats.Size = new System.Drawing.Size(80, 13);
 			this.PokeBaseStats.TabIndex = 36;
@@ -318,7 +317,7 @@
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.White;
 			this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label3.Location = new System.Drawing.Point(148, 66);
+			this.label3.Location = new System.Drawing.Point(172, 66);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(74, 13);
 			this.label3.TabIndex = 37;
@@ -329,7 +328,7 @@
 			this.PokeStrength.AutoSize = true;
 			this.PokeStrength.BackColor = System.Drawing.Color.White;
 			this.PokeStrength.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.PokeStrength.Location = new System.Drawing.Point(148, 100);
+			this.PokeStrength.Location = new System.Drawing.Point(172, 100);
 			this.PokeStrength.Name = "PokeStrength";
 			this.PokeStrength.Size = new System.Drawing.Size(72, 13);
 			this.PokeStrength.TabIndex = 38;
@@ -340,18 +339,18 @@
 			this.Evo1.AutoSize = true;
 			this.Evo1.BackColor = System.Drawing.Color.White;
 			this.Evo1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Evo1.Location = new System.Drawing.Point(148, 135);
+			this.Evo1.Location = new System.Drawing.Point(172, 135);
 			this.Evo1.Name = "Evo1";
-			this.Evo1.Size = new System.Drawing.Size(32, 13);
+			this.Evo1.Size = new System.Drawing.Size(48, 13);
 			this.Evo1.TabIndex = 39;
-			this.Evo1.Text = "Evo1";
+			this.Evo1.Text = "PrevEvo";
 			// 
 			// PokeWeakness
 			// 
 			this.PokeWeakness.AutoSize = true;
 			this.PokeWeakness.BackColor = System.Drawing.Color.White;
 			this.PokeWeakness.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.PokeWeakness.Location = new System.Drawing.Point(257, 100);
+			this.PokeWeakness.Location = new System.Drawing.Point(313, 100);
 			this.PokeWeakness.Name = "PokeWeakness";
 			this.PokeWeakness.Size = new System.Drawing.Size(83, 13);
 			this.PokeWeakness.TabIndex = 40;
@@ -363,28 +362,16 @@
 			this.Evo2.AutoSize = true;
 			this.Evo2.BackColor = System.Drawing.Color.White;
 			this.Evo2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Evo2.Location = new System.Drawing.Point(257, 135);
+			this.Evo2.Location = new System.Drawing.Point(313, 135);
 			this.Evo2.Name = "Evo2";
-			this.Evo2.Size = new System.Drawing.Size(32, 13);
+			this.Evo2.Size = new System.Drawing.Size(48, 13);
 			this.Evo2.TabIndex = 41;
-			this.Evo2.Text = "Evo2";
-			// 
-			// Evo3
-			// 
-			this.Evo3.AutoSize = true;
-			this.Evo3.BackColor = System.Drawing.Color.White;
-			this.Evo3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.Evo3.Location = new System.Drawing.Point(378, 135);
-			this.Evo3.Name = "Evo3";
-			this.Evo3.Size = new System.Drawing.Size(32, 13);
-			this.Evo3.TabIndex = 42;
-			this.Evo3.Text = "Evo3";
+			this.Evo2.Text = "NextEvo";
 			// 
 			// OtherInfo
 			// 
 			this.OtherInfo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.OtherInfo.Controls.Add(this.PokeStrength);
-			this.OtherInfo.Controls.Add(this.Evo3);
 			this.OtherInfo.Controls.Add(this.PokeWeakness);
 			this.OtherInfo.Controls.Add(this.Evo2);
 			this.OtherInfo.Controls.Add(this.BaseStats);
@@ -480,7 +467,6 @@
 		private System.Windows.Forms.Label Evo1;
 		private System.Windows.Forms.Label PokeWeakness;
 		private System.Windows.Forms.Label Evo2;
-		private System.Windows.Forms.Label Evo3;
 		private System.Windows.Forms.GroupBox OtherInfo;
 		private System.Windows.Forms.GroupBox groupBox1;
 	}

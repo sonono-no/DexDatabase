@@ -28,368 +28,537 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.DexDBLabel = new System.Windows.Forms.Label();
-			this.PokeNameLabel = new System.Windows.Forms.Label();
-			this.PokeNameBox = new System.Windows.Forms.TextBox();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.HiddenAbilityBox = new System.Windows.Forms.TextBox();
-			this.WeightBox = new System.Windows.Forms.TextBox();
-			this.Ability1Box = new System.Windows.Forms.TextBox();
-			this.Ability2Box = new System.Windows.Forms.TextBox();
-			this.HeightBox = new System.Windows.Forms.TextBox();
-			this.SpeciesBox = new System.Windows.Forms.TextBox();
-			this.Type2Box = new System.Windows.Forms.TextBox();
-			this.Type1Box = new System.Windows.Forms.TextBox();
-			this.AbilitiesLabel = new System.Windows.Forms.Label();
-			this.WeightLabel = new System.Windows.Forms.Label();
-			this.HeightLabel = new System.Windows.Forms.Label();
-			this.SpeciesLabel = new System.Windows.Forms.Label();
-			this.TypeLabel = new System.Windows.Forms.Label();
-			this.NumberBox = new System.Windows.Forms.TextBox();
-			this.NationalNoLabel = new System.Windows.Forms.Label();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.StatsLabel = new System.Windows.Forms.Label();
-			this.BreedingLabel = new System.Windows.Forms.Label();
-			this.EvolutionsLabel = new System.Windows.Forms.Label();
-			this.StatsBox = new System.Windows.Forms.TextBox();
-			this.BreedingBox = new System.Windows.Forms.TextBox();
-			this.NextEvoBox = new System.Windows.Forms.TextBox();
-			this.PrevEvoBox = new System.Windows.Forms.TextBox();
-			this.ImageLabel = new System.Windows.Forms.Label();
-			this.ImageLinkBox = new System.Windows.Forms.TextBox();
-			this.pictureBox = new System.Windows.Forms.PictureBox();
-			this.groupBox1.SuspendLayout();
-			this.groupBox3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// DexDBLabel
-			// 
-			this.DexDBLabel.AutoSize = true;
-			this.DexDBLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.DexDBLabel.Location = new System.Drawing.Point(12, 19);
-			this.DexDBLabel.Name = "DexDBLabel";
-			this.DexDBLabel.Size = new System.Drawing.Size(80, 21);
-			this.DexDBLabel.TabIndex = 1;
-			this.DexDBLabel.Text = "Dex DB";
-			// 
-			// PokeNameLabel
-			// 
-			this.PokeNameLabel.AutoSize = true;
-			this.PokeNameLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.PokeNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-			this.PokeNameLabel.Location = new System.Drawing.Point(6, 32);
-			this.PokeNameLabel.Name = "PokeNameLabel";
-			this.PokeNameLabel.Size = new System.Drawing.Size(86, 13);
-			this.PokeNameLabel.TabIndex = 3;
-			this.PokeNameLabel.Text = "Pokemon Name:";
-			// 
-			// PokeNameBox
-			// 
-			this.PokeNameBox.Location = new System.Drawing.Point(124, 29);
-			this.PokeNameBox.Name = "PokeNameBox";
-			this.PokeNameBox.Size = new System.Drawing.Size(100, 20);
-			this.PokeNameBox.TabIndex = 4;
-			this.PokeNameBox.Text = "Insert Name";
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.BackColor = System.Drawing.Color.DarkRed;
-			this.groupBox1.Controls.Add(this.groupBox2);
-			this.groupBox1.Controls.Add(this.HiddenAbilityBox);
-			this.groupBox1.Controls.Add(this.WeightBox);
-			this.groupBox1.Controls.Add(this.Ability1Box);
-			this.groupBox1.Controls.Add(this.Ability2Box);
-			this.groupBox1.Controls.Add(this.HeightBox);
-			this.groupBox1.Controls.Add(this.SpeciesBox);
-			this.groupBox1.Controls.Add(this.Type2Box);
-			this.groupBox1.Controls.Add(this.Type1Box);
-			this.groupBox1.Controls.Add(this.AbilitiesLabel);
-			this.groupBox1.Controls.Add(this.WeightLabel);
-			this.groupBox1.Controls.Add(this.HeightLabel);
-			this.groupBox1.Controls.Add(this.SpeciesLabel);
-			this.groupBox1.Controls.Add(this.TypeLabel);
-			this.groupBox1.Controls.Add(this.NumberBox);
-			this.groupBox1.Controls.Add(this.NationalNoLabel);
-			this.groupBox1.Controls.Add(this.PokeNameBox);
-			this.groupBox1.Controls.Add(this.PokeNameLabel);
-			this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-			this.groupBox1.Location = new System.Drawing.Point(16, 65);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(335, 306);
-			this.groupBox1.TabIndex = 5;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Add a Pokemon";
-			// 
-			// HiddenAbilityBox
-			// 
-			this.HiddenAbilityBox.Location = new System.Drawing.Point(124, 267);
-			this.HiddenAbilityBox.Name = "HiddenAbilityBox";
-			this.HiddenAbilityBox.Size = new System.Drawing.Size(100, 20);
-			this.HiddenAbilityBox.TabIndex = 19;
-			this.HiddenAbilityBox.Text = "Insert Hidden Ability";
-			// 
-			// WeightBox
-			// 
-			this.WeightBox.Location = new System.Drawing.Point(124, 207);
-			this.WeightBox.Name = "WeightBox";
-			this.WeightBox.Size = new System.Drawing.Size(100, 20);
-			this.WeightBox.TabIndex = 18;
-			this.WeightBox.Text = "Insert Weight";
-			// 
-			// Ability1Box
-			// 
-			this.Ability1Box.Location = new System.Drawing.Point(124, 241);
-			this.Ability1Box.Name = "Ability1Box";
-			this.Ability1Box.Size = new System.Drawing.Size(100, 20);
-			this.Ability1Box.TabIndex = 17;
-			this.Ability1Box.Text = "Insert Ability 1";
-			this.Ability1Box.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-			// 
-			// Ability2Box
-			// 
-			this.Ability2Box.Location = new System.Drawing.Point(230, 241);
-			this.Ability2Box.Name = "Ability2Box";
-			this.Ability2Box.Size = new System.Drawing.Size(100, 20);
-			this.Ability2Box.TabIndex = 16;
-			this.Ability2Box.Text = "Insert Ability 2";
-			// 
-			// HeightBox
-			// 
-			this.HeightBox.Location = new System.Drawing.Point(124, 169);
-			this.HeightBox.Name = "HeightBox";
-			this.HeightBox.Size = new System.Drawing.Size(100, 20);
-			this.HeightBox.TabIndex = 15;
-			this.HeightBox.Text = "Insert Height";
-			// 
-			// SpeciesBox
-			// 
-			this.SpeciesBox.Location = new System.Drawing.Point(124, 133);
-			this.SpeciesBox.Name = "SpeciesBox";
-			this.SpeciesBox.Size = new System.Drawing.Size(100, 20);
-			this.SpeciesBox.TabIndex = 14;
-			this.SpeciesBox.Text = "Insert Species";
-			// 
-			// Type2Box
-			// 
-			this.Type2Box.Location = new System.Drawing.Point(230, 98);
-			this.Type2Box.Name = "Type2Box";
-			this.Type2Box.Size = new System.Drawing.Size(100, 20);
-			this.Type2Box.TabIndex = 13;
-			this.Type2Box.Text = "Insert Type 2";
-			// 
-			// Type1Box
-			// 
-			this.Type1Box.Location = new System.Drawing.Point(124, 98);
-			this.Type1Box.Name = "Type1Box";
-			this.Type1Box.Size = new System.Drawing.Size(100, 20);
-			this.Type1Box.TabIndex = 12;
-			this.Type1Box.Text = "Insert Type 1";
-			// 
-			// AbilitiesLabel
-			// 
-			this.AbilitiesLabel.AutoSize = true;
-			this.AbilitiesLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.AbilitiesLabel.Location = new System.Drawing.Point(6, 244);
-			this.AbilitiesLabel.Name = "AbilitiesLabel";
-			this.AbilitiesLabel.Size = new System.Drawing.Size(45, 13);
-			this.AbilitiesLabel.TabIndex = 11;
-			this.AbilitiesLabel.Text = "Abilities:";
-			// 
-			// WeightLabel
-			// 
-			this.WeightLabel.AutoSize = true;
-			this.WeightLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.WeightLabel.Location = new System.Drawing.Point(6, 210);
-			this.WeightLabel.Name = "WeightLabel";
-			this.WeightLabel.Size = new System.Drawing.Size(44, 13);
-			this.WeightLabel.TabIndex = 10;
-			this.WeightLabel.Text = "Weight:";
-			// 
-			// HeightLabel
-			// 
-			this.HeightLabel.AutoSize = true;
-			this.HeightLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.HeightLabel.Location = new System.Drawing.Point(6, 172);
-			this.HeightLabel.Name = "HeightLabel";
-			this.HeightLabel.Size = new System.Drawing.Size(41, 13);
-			this.HeightLabel.TabIndex = 9;
-			this.HeightLabel.Text = "Height:";
-			// 
-			// SpeciesLabel
-			// 
-			this.SpeciesLabel.AutoSize = true;
-			this.SpeciesLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.SpeciesLabel.Location = new System.Drawing.Point(6, 136);
-			this.SpeciesLabel.Name = "SpeciesLabel";
-			this.SpeciesLabel.Size = new System.Drawing.Size(48, 13);
-			this.SpeciesLabel.TabIndex = 8;
-			this.SpeciesLabel.Text = "Species:";
-			// 
-			// TypeLabel
-			// 
-			this.TypeLabel.AutoSize = true;
-			this.TypeLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.TypeLabel.Location = new System.Drawing.Point(6, 101);
-			this.TypeLabel.Name = "TypeLabel";
-			this.TypeLabel.Size = new System.Drawing.Size(45, 13);
-			this.TypeLabel.TabIndex = 7;
-			this.TypeLabel.Text = "Type(s):";
-			// 
-			// NumberBox
-			// 
-			this.NumberBox.Location = new System.Drawing.Point(124, 66);
-			this.NumberBox.Name = "NumberBox";
-			this.NumberBox.Size = new System.Drawing.Size(100, 20);
-			this.NumberBox.TabIndex = 6;
-			this.NumberBox.Text = "Insert Number";
-			// 
-			// NationalNoLabel
-			// 
-			this.NationalNoLabel.AutoSize = true;
-			this.NationalNoLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.NationalNoLabel.ForeColor = System.Drawing.SystemColors.Control;
-			this.NationalNoLabel.Location = new System.Drawing.Point(6, 66);
-			this.NationalNoLabel.Name = "NationalNoLabel";
-			this.NationalNoLabel.Size = new System.Drawing.Size(66, 13);
-			this.NationalNoLabel.TabIndex = 5;
-			this.NationalNoLabel.Text = "National No.";
-			// 
-			// groupBox2
-			// 
-			this.groupBox2.Location = new System.Drawing.Point(336, 148);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(320, 158);
-			this.groupBox2.TabIndex = 6;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "groupBox2";
-			// 
-			// groupBox3
-			// 
-			this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.groupBox3.Controls.Add(this.PrevEvoBox);
-			this.groupBox3.Controls.Add(this.NextEvoBox);
-			this.groupBox3.Controls.Add(this.BreedingBox);
-			this.groupBox3.Controls.Add(this.StatsBox);
-			this.groupBox3.Controls.Add(this.EvolutionsLabel);
-			this.groupBox3.Controls.Add(this.BreedingLabel);
-			this.groupBox3.Controls.Add(this.StatsLabel);
-			this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
-			this.groupBox3.Location = new System.Drawing.Point(352, 189);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(314, 182);
-			this.groupBox3.TabIndex = 6;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Other Info";
-			// 
-			// StatsLabel
-			// 
-			this.StatsLabel.AutoSize = true;
-			this.StatsLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.StatsLabel.Location = new System.Drawing.Point(13, 32);
-			this.StatsLabel.Name = "StatsLabel";
-			this.StatsLabel.Size = new System.Drawing.Size(58, 13);
-			this.StatsLabel.TabIndex = 0;
-			this.StatsLabel.Text = "Base Stats";
-			// 
-			// BreedingLabel
-			// 
-			this.BreedingLabel.AutoSize = true;
-			this.BreedingLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.BreedingLabel.Location = new System.Drawing.Point(13, 66);
-			this.BreedingLabel.Name = "BreedingLabel";
-			this.BreedingLabel.Size = new System.Drawing.Size(70, 13);
-			this.BreedingLabel.TabIndex = 1;
-			this.BreedingLabel.Text = "Breeding Info";
-			// 
-			// EvolutionsLabel
-			// 
-			this.EvolutionsLabel.AutoSize = true;
-			this.EvolutionsLabel.BackColor = System.Drawing.Color.DarkRed;
-			this.EvolutionsLabel.Location = new System.Drawing.Point(15, 110);
-			this.EvolutionsLabel.Name = "EvolutionsLabel";
-			this.EvolutionsLabel.Size = new System.Drawing.Size(56, 13);
-			this.EvolutionsLabel.TabIndex = 4;
-			this.EvolutionsLabel.Text = "Evolutions";
-			// 
-			// StatsBox
-			// 
-			this.StatsBox.Location = new System.Drawing.Point(134, 25);
-			this.StatsBox.Name = "StatsBox";
-			this.StatsBox.Size = new System.Drawing.Size(100, 20);
-			this.StatsBox.TabIndex = 5;
-			this.StatsBox.Text = "Insert Stats";
-			// 
-			// BreedingBox
-			// 
-			this.BreedingBox.Location = new System.Drawing.Point(134, 66);
-			this.BreedingBox.Name = "BreedingBox";
-			this.BreedingBox.Size = new System.Drawing.Size(100, 20);
-			this.BreedingBox.TabIndex = 6;
-			this.BreedingBox.Text = "Insert Breeding";
-			// 
-			// NextEvoBox
-			// 
-			this.NextEvoBox.Location = new System.Drawing.Point(134, 149);
-			this.NextEvoBox.Name = "NextEvoBox";
-			this.NextEvoBox.Size = new System.Drawing.Size(124, 20);
-			this.NextEvoBox.TabIndex = 9;
-			this.NextEvoBox.Text = "Insert Next Evolution";
-			// 
-			// PrevEvoBox
-			// 
-			this.PrevEvoBox.Location = new System.Drawing.Point(134, 110);
-			this.PrevEvoBox.Name = "PrevEvoBox";
-			this.PrevEvoBox.Size = new System.Drawing.Size(124, 20);
-			this.PrevEvoBox.TabIndex = 10;
-			this.PrevEvoBox.Text = "Insert Previous Evolution";
-			// 
-			// ImageLabel
-			// 
-			this.ImageLabel.AutoSize = true;
-			this.ImageLabel.Location = new System.Drawing.Point(388, 73);
-			this.ImageLabel.Name = "ImageLabel";
-			this.ImageLabel.Size = new System.Drawing.Size(76, 13);
-			this.ImageLabel.TabIndex = 7;
-			this.ImageLabel.Text = "Attach Image: ";
-			// 
-			// ImageLinkBox
-			// 
-			this.ImageLinkBox.Location = new System.Drawing.Point(512, 73);
-			this.ImageLinkBox.Name = "ImageLinkBox";
-			this.ImageLinkBox.Size = new System.Drawing.Size(118, 20);
-			this.ImageLinkBox.TabIndex = 8;
-			this.ImageLinkBox.Text = "Insert Image Link";
-			// 
-			// pictureBox
-			// 
-			this.pictureBox.Location = new System.Drawing.Point(467, 107);
-			this.pictureBox.Name = "pictureBox";
-			this.pictureBox.Size = new System.Drawing.Size(82, 72);
-			this.pictureBox.TabIndex = 9;
-			this.pictureBox.TabStop = false;
-			// 
-			// InsertionPage
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(684, 379);
-			this.Controls.Add(this.pictureBox);
-			this.Controls.Add(this.ImageLinkBox);
-			this.Controls.Add(this.ImageLabel);
-			this.Controls.Add(this.groupBox3);
-			this.Controls.Add(this.DexDBLabel);
-			this.Controls.Add(this.groupBox1);
-			this.Name = "InsertionPage";
-			this.Text = "Add a Pokemon";
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.DexDBLabel = new System.Windows.Forms.Label();
+            this.PokeNameLabel = new System.Windows.Forms.Label();
+            this.PokeNameBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.hiddenAbilityBox = new System.Windows.Forms.ComboBox();
+            this.ability2Box = new System.Windows.Forms.ComboBox();
+            this.ability1Box = new System.Windows.Forms.ComboBox();
+            this.type2Dropdown = new System.Windows.Forms.ComboBox();
+            this.type1Dropdown = new System.Windows.Forms.ComboBox();
+            this.addButton = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.WeightBox = new System.Windows.Forms.TextBox();
+            this.HeightBox = new System.Windows.Forms.TextBox();
+            this.SpeciesBox = new System.Windows.Forms.TextBox();
+            this.AbilitiesLabel = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.SpeciesLabel = new System.Windows.Forms.Label();
+            this.TypeLabel = new System.Windows.Forms.Label();
+            this.NumberBox = new System.Windows.Forms.TextBox();
+            this.NationalNoLabel = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PrevEvoBox = new System.Windows.Forms.TextBox();
+            this.NextEvoBox = new System.Windows.Forms.TextBox();
+            this.hpInputBox = new System.Windows.Forms.TextBox();
+            this.EvolutionsLabel = new System.Windows.Forms.Label();
+            this.BreedingLabel = new System.Windows.Forms.Label();
+            this.StatsLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // DexDBLabel
+            // 
+            this.DexDBLabel.AutoSize = true;
+            this.DexDBLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DexDBLabel.Location = new System.Drawing.Point(16, 23);
+            this.DexDBLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DexDBLabel.Name = "DexDBLabel";
+            this.DexDBLabel.Size = new System.Drawing.Size(97, 25);
+            this.DexDBLabel.TabIndex = 1;
+            this.DexDBLabel.Text = "Dex DB";
+            // 
+            // PokeNameLabel
+            // 
+            this.PokeNameLabel.AutoSize = true;
+            this.PokeNameLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PokeNameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.PokeNameLabel.Location = new System.Drawing.Point(8, 39);
+            this.PokeNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PokeNameLabel.Name = "PokeNameLabel";
+            this.PokeNameLabel.Size = new System.Drawing.Size(108, 16);
+            this.PokeNameLabel.TabIndex = 3;
+            this.PokeNameLabel.Text = "Pokemon Name:";
+            // 
+            // PokeNameBox
+            // 
+            this.PokeNameBox.Location = new System.Drawing.Point(165, 36);
+            this.PokeNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PokeNameBox.Name = "PokeNameBox";
+            this.PokeNameBox.Size = new System.Drawing.Size(132, 22);
+            this.PokeNameBox.TabIndex = 4;
+            this.PokeNameBox.Text = "Insert Name";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.DarkRed;
+            this.groupBox1.Controls.Add(this.hiddenAbilityBox);
+            this.groupBox1.Controls.Add(this.ability2Box);
+            this.groupBox1.Controls.Add(this.ability1Box);
+            this.groupBox1.Controls.Add(this.type2Dropdown);
+            this.groupBox1.Controls.Add(this.type1Dropdown);
+            this.groupBox1.Controls.Add(this.addButton);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.WeightBox);
+            this.groupBox1.Controls.Add(this.HeightBox);
+            this.groupBox1.Controls.Add(this.SpeciesBox);
+            this.groupBox1.Controls.Add(this.AbilitiesLabel);
+            this.groupBox1.Controls.Add(this.WeightLabel);
+            this.groupBox1.Controls.Add(this.HeightLabel);
+            this.groupBox1.Controls.Add(this.SpeciesLabel);
+            this.groupBox1.Controls.Add(this.TypeLabel);
+            this.groupBox1.Controls.Add(this.NumberBox);
+            this.groupBox1.Controls.Add(this.NationalNoLabel);
+            this.groupBox1.Controls.Add(this.PokeNameBox);
+            this.groupBox1.Controls.Add(this.PokeNameLabel);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(21, 80);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(447, 377);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Add a Pokemon";
+            // 
+            // hiddenAbilityBox
+            // 
+            this.hiddenAbilityBox.FormattingEnabled = true;
+            this.hiddenAbilityBox.Location = new System.Drawing.Point(165, 336);
+            this.hiddenAbilityBox.Name = "hiddenAbilityBox";
+            this.hiddenAbilityBox.Size = new System.Drawing.Size(152, 24);
+            this.hiddenAbilityBox.TabIndex = 24;
+            this.hiddenAbilityBox.Text = "Insert Hidden Ability";
+            // 
+            // ability2Box
+            // 
+            this.ability2Box.FormattingEnabled = true;
+            this.ability2Box.Location = new System.Drawing.Point(305, 294);
+            this.ability2Box.Name = "ability2Box";
+            this.ability2Box.Size = new System.Drawing.Size(121, 24);
+            this.ability2Box.TabIndex = 23;
+            this.ability2Box.Text = "Insert Ability 2";
+            // 
+            // ability1Box
+            // 
+            this.ability1Box.FormattingEnabled = true;
+            this.ability1Box.Location = new System.Drawing.Point(165, 294);
+            this.ability1Box.Name = "ability1Box";
+            this.ability1Box.Size = new System.Drawing.Size(121, 24);
+            this.ability1Box.TabIndex = 22;
+            this.ability1Box.Text = "Insert Ability 1";
+            // 
+            // type2Dropdown
+            // 
+            this.type2Dropdown.FormattingEnabled = true;
+            this.type2Dropdown.Location = new System.Drawing.Point(259, 121);
+            this.type2Dropdown.Name = "type2Dropdown";
+            this.type2Dropdown.Size = new System.Drawing.Size(121, 24);
+            this.type2Dropdown.TabIndex = 21;
+            this.type2Dropdown.Text = "Type2";
+            // 
+            // type1Dropdown
+            // 
+            this.type1Dropdown.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.type1Dropdown.FormattingEnabled = true;
+            this.type1Dropdown.Location = new System.Drawing.Point(115, 121);
+            this.type1Dropdown.Name = "type1Dropdown";
+            this.type1Dropdown.Size = new System.Drawing.Size(121, 24);
+            this.type1Dropdown.TabIndex = 8;
+            this.type1Dropdown.Text = "Type1";
+            // 
+            // addButton
+            // 
+            this.addButton.AutoSize = true;
+            this.addButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.addButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.addButton.Location = new System.Drawing.Point(407, 9);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(32, 16);
+            this.addButton.TabIndex = 20;
+            this.addButton.Text = "Add";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(448, 182);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(427, 194);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // WeightBox
+            // 
+            this.WeightBox.Location = new System.Drawing.Point(165, 255);
+            this.WeightBox.Margin = new System.Windows.Forms.Padding(4);
+            this.WeightBox.Name = "WeightBox";
+            this.WeightBox.Size = new System.Drawing.Size(132, 22);
+            this.WeightBox.TabIndex = 18;
+            this.WeightBox.Text = "Insert Weight";
+            // 
+            // HeightBox
+            // 
+            this.HeightBox.Location = new System.Drawing.Point(165, 208);
+            this.HeightBox.Margin = new System.Windows.Forms.Padding(4);
+            this.HeightBox.Name = "HeightBox";
+            this.HeightBox.Size = new System.Drawing.Size(132, 22);
+            this.HeightBox.TabIndex = 15;
+            this.HeightBox.Text = "Insert Height";
+            // 
+            // SpeciesBox
+            // 
+            this.SpeciesBox.Location = new System.Drawing.Point(165, 164);
+            this.SpeciesBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SpeciesBox.Name = "SpeciesBox";
+            this.SpeciesBox.Size = new System.Drawing.Size(132, 22);
+            this.SpeciesBox.TabIndex = 14;
+            this.SpeciesBox.Text = "Insert Species";
+            // 
+            // AbilitiesLabel
+            // 
+            this.AbilitiesLabel.AutoSize = true;
+            this.AbilitiesLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AbilitiesLabel.Location = new System.Drawing.Point(8, 300);
+            this.AbilitiesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AbilitiesLabel.Name = "AbilitiesLabel";
+            this.AbilitiesLabel.Size = new System.Drawing.Size(57, 16);
+            this.AbilitiesLabel.TabIndex = 11;
+            this.AbilitiesLabel.Text = "Abilities:";
+            // 
+            // WeightLabel
+            // 
+            this.WeightLabel.AutoSize = true;
+            this.WeightLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.WeightLabel.Location = new System.Drawing.Point(8, 258);
+            this.WeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(52, 16);
+            this.WeightLabel.TabIndex = 10;
+            this.WeightLabel.Text = "Weight:";
+            // 
+            // HeightLabel
+            // 
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.HeightLabel.Location = new System.Drawing.Point(8, 212);
+            this.HeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(49, 16);
+            this.HeightLabel.TabIndex = 9;
+            this.HeightLabel.Text = "Height:";
+            // 
+            // SpeciesLabel
+            // 
+            this.SpeciesLabel.AutoSize = true;
+            this.SpeciesLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SpeciesLabel.Location = new System.Drawing.Point(8, 167);
+            this.SpeciesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SpeciesLabel.Name = "SpeciesLabel";
+            this.SpeciesLabel.Size = new System.Drawing.Size(60, 16);
+            this.SpeciesLabel.TabIndex = 8;
+            this.SpeciesLabel.Text = "Species:";
+            // 
+            // TypeLabel
+            // 
+            this.TypeLabel.AutoSize = true;
+            this.TypeLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TypeLabel.Location = new System.Drawing.Point(8, 124);
+            this.TypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(57, 16);
+            this.TypeLabel.TabIndex = 7;
+            this.TypeLabel.Text = "Type(s):";
+            // 
+            // NumberBox
+            // 
+            this.NumberBox.Location = new System.Drawing.Point(165, 81);
+            this.NumberBox.Margin = new System.Windows.Forms.Padding(4);
+            this.NumberBox.Name = "NumberBox";
+            this.NumberBox.Size = new System.Drawing.Size(132, 22);
+            this.NumberBox.TabIndex = 6;
+            this.NumberBox.Text = "Insert Number";
+            // 
+            // NationalNoLabel
+            // 
+            this.NationalNoLabel.AutoSize = true;
+            this.NationalNoLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.NationalNoLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.NationalNoLabel.Location = new System.Drawing.Point(8, 81);
+            this.NationalNoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NationalNoLabel.Name = "NationalNoLabel";
+            this.NationalNoLabel.Size = new System.Drawing.Size(81, 16);
+            this.NationalNoLabel.TabIndex = 5;
+            this.NationalNoLabel.Text = "National No.";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.PrevEvoBox);
+            this.groupBox3.Controls.Add(this.NextEvoBox);
+            this.groupBox3.Controls.Add(this.hpInputBox);
+            this.groupBox3.Controls.Add(this.EvolutionsLabel);
+            this.groupBox3.Controls.Add(this.BreedingLabel);
+            this.groupBox3.Controls.Add(this.StatsLabel);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.Location = new System.Drawing.Point(469, 233);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(419, 224);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Other Info";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(265, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Defense";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(330, 33);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(32, 22);
+            this.textBox2.TabIndex = 14;
+            this.textBox2.Text = "000";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(176, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Attack";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(227, 33);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(32, 22);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.Text = "000";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(103, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "HP";
+            // 
+            // PrevEvoBox
+            // 
+            this.PrevEvoBox.Location = new System.Drawing.Point(106, 188);
+            this.PrevEvoBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PrevEvoBox.Name = "PrevEvoBox";
+            this.PrevEvoBox.Size = new System.Drawing.Size(62, 22);
+            this.PrevEvoBox.TabIndex = 10;
+            this.PrevEvoBox.Text = "Previous";
+            // 
+            // NextEvoBox
+            // 
+            this.NextEvoBox.Location = new System.Drawing.Point(197, 188);
+            this.NextEvoBox.Margin = new System.Windows.Forms.Padding(4);
+            this.NextEvoBox.Name = "NextEvoBox";
+            this.NextEvoBox.Size = new System.Drawing.Size(62, 22);
+            this.NextEvoBox.TabIndex = 9;
+            this.NextEvoBox.Text = "Next";
+            // 
+            // hpInputBox
+            // 
+            this.hpInputBox.Location = new System.Drawing.Point(136, 33);
+            this.hpInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hpInputBox.Name = "hpInputBox";
+            this.hpInputBox.Size = new System.Drawing.Size(32, 22);
+            this.hpInputBox.TabIndex = 5;
+            this.hpInputBox.Text = "000";
+            // 
+            // EvolutionsLabel
+            // 
+            this.EvolutionsLabel.AutoSize = true;
+            this.EvolutionsLabel.BackColor = System.Drawing.Color.DarkRed;
+            this.EvolutionsLabel.Location = new System.Drawing.Point(15, 191);
+            this.EvolutionsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EvolutionsLabel.Name = "EvolutionsLabel";
+            this.EvolutionsLabel.Size = new System.Drawing.Size(69, 16);
+            this.EvolutionsLabel.TabIndex = 4;
+            this.EvolutionsLabel.Text = "Evolutions";
+            // 
+            // BreedingLabel
+            // 
+            this.BreedingLabel.AutoSize = true;
+            this.BreedingLabel.BackColor = System.Drawing.Color.DarkRed;
+            this.BreedingLabel.Location = new System.Drawing.Point(15, 108);
+            this.BreedingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BreedingLabel.Name = "BreedingLabel";
+            this.BreedingLabel.Size = new System.Drawing.Size(86, 16);
+            this.BreedingLabel.TabIndex = 1;
+            this.BreedingLabel.Text = "Breeding Info";
+            // 
+            // StatsLabel
+            // 
+            this.StatsLabel.AutoSize = true;
+            this.StatsLabel.BackColor = System.Drawing.Color.DarkRed;
+            this.StatsLabel.Location = new System.Drawing.Point(15, 36);
+            this.StatsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.StatsLabel.Name = "StatsLabel";
+            this.StatsLabel.Size = new System.Drawing.Size(72, 16);
+            this.StatsLabel.TabIndex = 0;
+            this.StatsLabel.Text = "Base Stats";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(215, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 16);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Speed";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(270, 66);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(32, 22);
+            this.textBox3.TabIndex = 20;
+            this.textBox3.Text = "000";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(119, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Sp. Def";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(175, 66);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(32, 22);
+            this.textBox4.TabIndex = 18;
+            this.textBox4.Text = "000";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 16);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Sp. Atk";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(78, 66);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(32, 22);
+            this.textBox5.TabIndex = 16;
+            this.textBox5.Text = "000";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(122, 105);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(85, 24);
+            this.comboBox1.TabIndex = 22;
+            this.comboBox1.Text = "Type2";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(239, 105);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(85, 24);
+            this.comboBox2.TabIndex = 23;
+            this.comboBox2.Text = "Type2";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(98, 141);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(32, 22);
+            this.textBox6.TabIndex = 24;
+            this.textBox6.Text = "000";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Egg Cycles";
+            // 
+            // InsertionPage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(912, 466);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.DexDBLabel);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "InsertionPage";
+            this.Text = "Add a Pokemon";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
@@ -407,13 +576,8 @@
 		private System.Windows.Forms.Label AbilitiesLabel;
 		private System.Windows.Forms.Label WeightLabel;
 		private System.Windows.Forms.TextBox WeightBox;
-		private System.Windows.Forms.TextBox Ability1Box;
-		private System.Windows.Forms.TextBox Ability2Box;
 		private System.Windows.Forms.TextBox HeightBox;
 		private System.Windows.Forms.TextBox SpeciesBox;
-		private System.Windows.Forms.TextBox Type2Box;
-		private System.Windows.Forms.TextBox Type1Box;
-		private System.Windows.Forms.TextBox HiddenAbilityBox;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.Label BreedingLabel;
@@ -421,10 +585,27 @@
 		private System.Windows.Forms.Label EvolutionsLabel;
 		private System.Windows.Forms.TextBox PrevEvoBox;
 		private System.Windows.Forms.TextBox NextEvoBox;
-		private System.Windows.Forms.TextBox BreedingBox;
-		private System.Windows.Forms.TextBox StatsBox;
-		private System.Windows.Forms.Label ImageLabel;
-		private System.Windows.Forms.TextBox ImageLinkBox;
-		private System.Windows.Forms.PictureBox pictureBox;
-	}
+		private System.Windows.Forms.TextBox hpInputBox;
+        private System.Windows.Forms.Label addButton;
+        private System.Windows.Forms.ComboBox type1Dropdown;
+        private System.Windows.Forms.ComboBox type2Dropdown;
+        private System.Windows.Forms.ComboBox hiddenAbilityBox;
+        private System.Windows.Forms.ComboBox ability2Box;
+        private System.Windows.Forms.ComboBox ability1Box;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+    }
 }

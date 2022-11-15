@@ -47,20 +47,20 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.nationalDexLabel = new System.Windows.Forms.Label();
             this.BaseStats = new System.Windows.Forms.Label();
-            this.PokeBaseStats = new System.Windows.Forms.Label();
             this.Evo1 = new System.Windows.Forms.Label();
             this.Evo2 = new System.Windows.Forms.Label();
             this.OtherInfo = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.statColumnLabel = new System.Windows.Forms.Label();
-            this.eggGroup2 = new System.Windows.Forms.Label();
-            this.genderRatio2 = new System.Windows.Forms.Label();
-            this.genderRatio1 = new System.Windows.Forms.Label();
-            this.genderRatioLabel = new System.Windows.Forms.Label();
-            this.eggGroup1 = new System.Windows.Forms.Label();
-            this.eggGroupsLabel = new System.Windows.Forms.Label();
-            this.eggCyclesLabel = new System.Windows.Forms.Label();
+            this.PokeBaseStats = new System.Windows.Forms.TextBox();
             this.eggCycles = new System.Windows.Forms.Label();
+            this.eggCyclesLabel = new System.Windows.Forms.Label();
+            this.eggGroupsLabel = new System.Windows.Forms.Label();
+            this.eggGroup1 = new System.Windows.Forms.Label();
+            this.genderRatioLabel = new System.Windows.Forms.Label();
+            this.genderRatio1 = new System.Windows.Forms.Label();
+            this.genderRatio2 = new System.Windows.Forms.Label();
+            this.eggGroup2 = new System.Windows.Forms.Label();
+            this.statColumnLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pokePicture)).BeginInit();
             this.OtherInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -262,18 +262,6 @@
             this.BaseStats.TabIndex = 32;
             this.BaseStats.Text = "Base Stats:";
             // 
-            // PokeBaseStats
-            // 
-            this.PokeBaseStats.AutoSize = true;
-            this.PokeBaseStats.BackColor = System.Drawing.Color.White;
-            this.PokeBaseStats.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PokeBaseStats.Location = new System.Drawing.Point(229, 38);
-            this.PokeBaseStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.PokeBaseStats.Name = "PokeBaseStats";
-            this.PokeBaseStats.Size = new System.Drawing.Size(101, 16);
-            this.PokeBaseStats.TabIndex = 36;
-            this.PokeBaseStats.Text = "PokeBaseStats";
-            // 
             // Evo1
             // 
             this.Evo1.AutoSize = true;
@@ -301,6 +289,7 @@
             // OtherInfo
             // 
             this.OtherInfo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.OtherInfo.Controls.Add(this.PokeBaseStats);
             this.OtherInfo.Controls.Add(this.eggCycles);
             this.OtherInfo.Controls.Add(this.eggCyclesLabel);
             this.OtherInfo.Controls.Add(this.eggGroupsLabel);
@@ -313,7 +302,6 @@
             this.OtherInfo.Controls.Add(this.Evo2);
             this.OtherInfo.Controls.Add(this.BaseStats);
             this.OtherInfo.Controls.Add(this.Evo1);
-            this.OtherInfo.Controls.Add(this.PokeBaseStats);
             this.OtherInfo.ForeColor = System.Drawing.SystemColors.Control;
             this.OtherInfo.Location = new System.Drawing.Point(16, 311);
             this.OtherInfo.Margin = new System.Windows.Forms.Padding(4);
@@ -323,6 +311,125 @@
             this.OtherInfo.TabIndex = 44;
             this.OtherInfo.TabStop = false;
             this.OtherInfo.Text = "Other Info";
+            // 
+            // PokeBaseStats
+            // 
+            this.PokeBaseStats.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.PokeBaseStats.Enabled = false;
+            this.PokeBaseStats.Location = new System.Drawing.Point(220, 38);
+            this.PokeBaseStats.Margin = new System.Windows.Forms.Padding(4);
+            this.PokeBaseStats.Name = "PokeBaseStats";
+            this.PokeBaseStats.Size = new System.Drawing.Size(333, 22);
+            this.PokeBaseStats.TabIndex = 51;
+            this.PokeBaseStats.Text = "Total  HP Attack Defense Sp. Atk Sp. Def Speed";
+            // 
+            // eggCycles
+            // 
+            this.eggCycles.AutoSize = true;
+            this.eggCycles.BackColor = System.Drawing.Color.White;
+            this.eggCycles.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.eggCycles.Location = new System.Drawing.Point(358, 81);
+            this.eggCycles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eggCycles.Name = "eggCycles";
+            this.eggCycles.Size = new System.Drawing.Size(46, 16);
+            this.eggCycles.TabIndex = 50;
+            this.eggCycles.Text = "cycles";
+            // 
+            // eggCyclesLabel
+            // 
+            this.eggCyclesLabel.AutoSize = true;
+            this.eggCyclesLabel.BackColor = System.Drawing.Color.White;
+            this.eggCyclesLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.eggCyclesLabel.Location = new System.Drawing.Point(261, 81);
+            this.eggCyclesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eggCyclesLabel.Name = "eggCyclesLabel";
+            this.eggCyclesLabel.Size = new System.Drawing.Size(79, 16);
+            this.eggCyclesLabel.TabIndex = 49;
+            this.eggCyclesLabel.Text = "Egg Cycles:";
+            // 
+            // eggGroupsLabel
+            // 
+            this.eggGroupsLabel.AutoSize = true;
+            this.eggGroupsLabel.BackColor = System.Drawing.Color.White;
+            this.eggGroupsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.eggGroupsLabel.Location = new System.Drawing.Point(16, 81);
+            this.eggGroupsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eggGroupsLabel.Name = "eggGroupsLabel";
+            this.eggGroupsLabel.Size = new System.Drawing.Size(82, 16);
+            this.eggGroupsLabel.TabIndex = 48;
+            this.eggGroupsLabel.Text = "Egg Groups:";
+            // 
+            // eggGroup1
+            // 
+            this.eggGroup1.AutoSize = true;
+            this.eggGroup1.BackColor = System.Drawing.Color.White;
+            this.eggGroup1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.eggGroup1.Location = new System.Drawing.Point(115, 81);
+            this.eggGroup1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eggGroup1.Name = "eggGroup1";
+            this.eggGroup1.Size = new System.Drawing.Size(33, 16);
+            this.eggGroup1.TabIndex = 47;
+            this.eggGroup1.Text = "type";
+            // 
+            // genderRatioLabel
+            // 
+            this.genderRatioLabel.AutoSize = true;
+            this.genderRatioLabel.BackColor = System.Drawing.Color.White;
+            this.genderRatioLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.genderRatioLabel.Location = new System.Drawing.Point(16, 120);
+            this.genderRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genderRatioLabel.Name = "genderRatioLabel";
+            this.genderRatioLabel.Size = new System.Drawing.Size(55, 16);
+            this.genderRatioLabel.TabIndex = 46;
+            this.genderRatioLabel.Text = "Gender:";
+            // 
+            // genderRatio1
+            // 
+            this.genderRatio1.AutoSize = true;
+            this.genderRatio1.BackColor = System.Drawing.Color.White;
+            this.genderRatio1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.genderRatio1.Location = new System.Drawing.Point(115, 120);
+            this.genderRatio1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genderRatio1.Name = "genderRatio1";
+            this.genderRatio1.Size = new System.Drawing.Size(94, 16);
+            this.genderRatio1.TabIndex = 45;
+            this.genderRatio1.Text = "PokeBreeding";
+            // 
+            // genderRatio2
+            // 
+            this.genderRatio2.AutoSize = true;
+            this.genderRatio2.BackColor = System.Drawing.Color.White;
+            this.genderRatio2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.genderRatio2.Location = new System.Drawing.Point(217, 120);
+            this.genderRatio2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genderRatio2.Name = "genderRatio2";
+            this.genderRatio2.Size = new System.Drawing.Size(94, 16);
+            this.genderRatio2.TabIndex = 44;
+            this.genderRatio2.Text = "PokeBreeding";
+            // 
+            // eggGroup2
+            // 
+            this.eggGroup2.AutoSize = true;
+            this.eggGroup2.BackColor = System.Drawing.Color.White;
+            this.eggGroup2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.eggGroup2.Location = new System.Drawing.Point(166, 81);
+            this.eggGroup2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eggGroup2.Name = "eggGroup2";
+            this.eggGroup2.Size = new System.Drawing.Size(33, 16);
+            this.eggGroup2.TabIndex = 43;
+            this.eggGroup2.Text = "type";
+            // 
+            // statColumnLabel
+            // 
+            this.statColumnLabel.AutoSize = true;
+            this.statColumnLabel.BackColor = System.Drawing.Color.White;
+            this.statColumnLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.statColumnLabel.Location = new System.Drawing.Point(217, 19);
+            this.statColumnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statColumnLabel.Name = "statColumnLabel";
+            this.statColumnLabel.Size = new System.Drawing.Size(293, 16);
+            this.statColumnLabel.TabIndex = 42;
+            this.statColumnLabel.Text = "Total  HP Attack Defense Sp. Atk Sp. Def Speed";
             // 
             // groupBox1
             // 
@@ -350,114 +457,6 @@
             this.groupBox1.Size = new System.Drawing.Size(385, 277);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
-            // 
-            // statColumnLabel
-            // 
-            this.statColumnLabel.AutoSize = true;
-            this.statColumnLabel.BackColor = System.Drawing.Color.White;
-            this.statColumnLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.statColumnLabel.Location = new System.Drawing.Point(239, 19);
-            this.statColumnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.statColumnLabel.Name = "statColumnLabel";
-            this.statColumnLabel.Size = new System.Drawing.Size(268, 16);
-            this.statColumnLabel.TabIndex = 42;
-            this.statColumnLabel.Text = "Total Attack Defense Sp. Atk Sp. Def Speed";
-            // 
-            // eggGroup2
-            // 
-            this.eggGroup2.AutoSize = true;
-            this.eggGroup2.BackColor = System.Drawing.Color.White;
-            this.eggGroup2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.eggGroup2.Location = new System.Drawing.Point(166, 81);
-            this.eggGroup2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eggGroup2.Name = "eggGroup2";
-            this.eggGroup2.Size = new System.Drawing.Size(33, 16);
-            this.eggGroup2.TabIndex = 43;
-            this.eggGroup2.Text = "type";
-            // 
-            // genderRatio2
-            // 
-            this.genderRatio2.AutoSize = true;
-            this.genderRatio2.BackColor = System.Drawing.Color.White;
-            this.genderRatio2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.genderRatio2.Location = new System.Drawing.Point(217, 120);
-            this.genderRatio2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.genderRatio2.Name = "genderRatio2";
-            this.genderRatio2.Size = new System.Drawing.Size(94, 16);
-            this.genderRatio2.TabIndex = 44;
-            this.genderRatio2.Text = "PokeBreeding";
-            // 
-            // genderRatio1
-            // 
-            this.genderRatio1.AutoSize = true;
-            this.genderRatio1.BackColor = System.Drawing.Color.White;
-            this.genderRatio1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.genderRatio1.Location = new System.Drawing.Point(115, 120);
-            this.genderRatio1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.genderRatio1.Name = "genderRatio1";
-            this.genderRatio1.Size = new System.Drawing.Size(94, 16);
-            this.genderRatio1.TabIndex = 45;
-            this.genderRatio1.Text = "PokeBreeding";
-            // 
-            // genderRatioLabel
-            // 
-            this.genderRatioLabel.AutoSize = true;
-            this.genderRatioLabel.BackColor = System.Drawing.Color.White;
-            this.genderRatioLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.genderRatioLabel.Location = new System.Drawing.Point(16, 120);
-            this.genderRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.genderRatioLabel.Name = "genderRatioLabel";
-            this.genderRatioLabel.Size = new System.Drawing.Size(55, 16);
-            this.genderRatioLabel.TabIndex = 46;
-            this.genderRatioLabel.Text = "Gender:";
-            // 
-            // eggGroup1
-            // 
-            this.eggGroup1.AutoSize = true;
-            this.eggGroup1.BackColor = System.Drawing.Color.White;
-            this.eggGroup1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.eggGroup1.Location = new System.Drawing.Point(115, 81);
-            this.eggGroup1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eggGroup1.Name = "eggGroup1";
-            this.eggGroup1.Size = new System.Drawing.Size(33, 16);
-            this.eggGroup1.TabIndex = 47;
-            this.eggGroup1.Text = "type";
-            // 
-            // eggGroupsLabel
-            // 
-            this.eggGroupsLabel.AutoSize = true;
-            this.eggGroupsLabel.BackColor = System.Drawing.Color.White;
-            this.eggGroupsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.eggGroupsLabel.Location = new System.Drawing.Point(16, 81);
-            this.eggGroupsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eggGroupsLabel.Name = "eggGroupsLabel";
-            this.eggGroupsLabel.Size = new System.Drawing.Size(82, 16);
-            this.eggGroupsLabel.TabIndex = 48;
-            this.eggGroupsLabel.Text = "Egg Groups:";
-            // 
-            // eggCyclesLabel
-            // 
-            this.eggCyclesLabel.AutoSize = true;
-            this.eggCyclesLabel.BackColor = System.Drawing.Color.White;
-            this.eggCyclesLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.eggCyclesLabel.Location = new System.Drawing.Point(261, 81);
-            this.eggCyclesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eggCyclesLabel.Name = "eggCyclesLabel";
-            this.eggCyclesLabel.Size = new System.Drawing.Size(79, 16);
-            this.eggCyclesLabel.TabIndex = 49;
-            this.eggCyclesLabel.Text = "Egg Cycles:";
-            // 
-            // eggCycles
-            // 
-            this.eggCycles.AutoSize = true;
-            this.eggCycles.BackColor = System.Drawing.Color.White;
-            this.eggCycles.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.eggCycles.Location = new System.Drawing.Point(358, 81);
-            this.eggCycles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eggCycles.Name = "eggCycles";
-            this.eggCycles.Size = new System.Drawing.Size(46, 16);
-            this.eggCycles.TabIndex = 50;
-            this.eggCycles.Text = "cycles";
             // 
             // PokePage
             // 
@@ -504,7 +503,6 @@
 		private System.Windows.Forms.Label typeLabel;
 		private System.Windows.Forms.Label nationalDexLabel;
 		private System.Windows.Forms.Label BaseStats;
-		private System.Windows.Forms.Label PokeBaseStats;
 		private System.Windows.Forms.Label Evo1;
 		private System.Windows.Forms.Label Evo2;
 		private System.Windows.Forms.GroupBox OtherInfo;
@@ -518,5 +516,6 @@
         private System.Windows.Forms.Label eggGroup2;
         private System.Windows.Forms.Label eggCycles;
         private System.Windows.Forms.Label eggCyclesLabel;
+        private System.Windows.Forms.TextBox PokeBaseStats;
     }
 }

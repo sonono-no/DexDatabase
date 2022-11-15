@@ -55,6 +55,7 @@ namespace DexDatabase
             this.namePlaceholder3 = new System.Windows.Forms.Label();
             this.dexNoPlaceHolder3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.expandButton = new System.Windows.Forms.Button();
             this.pokeAbility2 = new System.Windows.Forms.Label();
             this.pokeAbilityHidden = new System.Windows.Forms.Label();
             this.pokeAbility1 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@ namespace DexDatabase
             this.typeLabel = new System.Windows.Forms.Label();
             this.nationalDexLabel = new System.Windows.Forms.Label();
             this.pokePicture = new System.Windows.Forms.PictureBox();
-            this.expandButton = new System.Windows.Forms.Button();
             this.dexEntryPlaceholder1.SuspendLayout();
             this.dexEntryPlaceholder2.SuspendLayout();
             this.dexEntryPlaceholder5.SuspendLayout();
@@ -131,12 +131,13 @@ namespace DexDatabase
             // 
             this.AddButton.BackColor = System.Drawing.Color.White;
             this.AddButton.Location = new System.Drawing.Point(348, 121);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(127, 28);
             this.AddButton.TabIndex = 8;
             this.AddButton.Text = "Add Pokemon";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // dexEntryPlaceholder1
             // 
@@ -346,6 +347,16 @@ namespace DexDatabase
             this.panel1.Size = new System.Drawing.Size(403, 222);
             this.panel1.TabIndex = 20;
             // 
+            // expandButton
+            // 
+            this.expandButton.Location = new System.Drawing.Point(314, 3);
+            this.expandButton.Name = "expandButton";
+            this.expandButton.Size = new System.Drawing.Size(86, 23);
+            this.expandButton.TabIndex = 16;
+            this.expandButton.Text = "Expand >";
+            this.expandButton.UseVisualStyleBackColor = true;
+            this.expandButton.Click += new System.EventHandler(this.expandButton_Click);
+            // 
             // pokeAbility2
             // 
             this.pokeAbility2.AutoSize = true;
@@ -509,16 +520,6 @@ namespace DexDatabase
             this.pokePicture.TabIndex = 0;
             this.pokePicture.TabStop = false;
             this.pokePicture.WaitOnLoad = true;
-            // 
-            // expandButton
-            // 
-            this.expandButton.Location = new System.Drawing.Point(314, 3);
-            this.expandButton.Name = "expandButton";
-            this.expandButton.Size = new System.Drawing.Size(86, 23);
-            this.expandButton.TabIndex = 16;
-            this.expandButton.Text = "Expand >";
-            this.expandButton.UseVisualStyleBackColor = true;
-            this.expandButton.Click += new System.EventHandler(this.expandButton_Click);
             // 
             // MainPage
             // 

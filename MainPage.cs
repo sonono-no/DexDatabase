@@ -137,33 +137,36 @@ namespace DexDatabase
 
         private void queryDexEntries(string queryString)
         {
-            Label[,] placeholderLabels = new Label[,] { { dexNoPlaceHolder1, namePlaceholder1 }, { dexNoPlaceHolder2, namePlaceholder2 },
-                { dexNoPlaceHolder3, namePlaceholder3 }, { dexNoPlaceHolder4, namePlaceholder4 },
-                { dexNoPlaceHolder5, namePlaceholder5 }, }; //for easy access to all labels
-
 
             cnn.Open();
 
             SqlCommand cmdLoadDexEntries = cnn.CreateCommand();
             cmdLoadDexEntries.CommandText = queryString;
-            cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
+            if(isSearch)
+                cmdLoadDexEntries.Parameters.AddWithValue("@Search", SearchBar.Text);
 
             SqlDataReader dexReader = cmdLoadDexEntries.ExecuteReader();
 
             for (int i = 0; i < 5; i++)
             {
-                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0'); //add dexNo reguardless
+                placeholderLabels[i, 0].Text = $"{baseOffset * 5 + i + 1}".PadLeft(3, '0'); //add dexNo first
+                placeholderLabels[i, 1].Text = ""; //set past entry pokeNames to an empty string
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
                 if (dexReader.Read()) //check for next result
                 {
                     if (!isSearch) // make sure it's not a search
                     {
-                        if (placeholderLabels[i, 0].Text == dexReader[0].ToString().PadLeft(3, '0')) //if next result matches dexNumber, add to entry
+                        for (int j = 0; j < 5;j++)
                         {
-                            placeholderLabels[i, 1].Text = dexReader[1].ToString();
-                        }
-                        else //else place ???
-                        {
-                            placeholderLabels[i, 1].Text = "???";
+                            if (placeholderLabels[j, 0].Text == dexReader[0].ToString().PadLeft(3, '0')) //if next result matches dexNumber, add to entry
+                            {
+
+                                placeholderLabels[j, 1].Text = dexReader[1].ToString();
+                                break;
+                            }
                         }
                     } //if isSearch, place entry reguardless of current position in dex
                     else
@@ -176,7 +179,13 @@ namespace DexDatabase
                 {
                     if (!isSearch) // if not search, fill with ???
                     {
-                        placeholderLabels[i, 1].Text = "???";
+                        for (int j = 0; j < 5; j++)
+                        {
+                            if (placeholderLabels[j,1].Text == "")
+                            {
+                                placeholderLabels[j, 1].Text = "???";
+                            }
+                        }
                     }
                     else //if isSearch, fill dexNo and pokeName with ---
                     {
@@ -377,6 +386,15 @@ namespace DexDatabase
 
             extendedView.UpdateInfo(currentDexNo.Text);
 
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if(!Application.OpenForms.OfType<InsertionPage>().Any())
+            {
+                InsertionPage insertionPage = new InsertionPage();
+                insertionPage.Show(this);
+            }
         }
     }
 }

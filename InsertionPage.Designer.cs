@@ -51,9 +51,9 @@
             this.NationalNoLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.defenseInputBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.attackInputBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PrevEvoBox = new System.Windows.Forms.TextBox();
             this.NextEvoBox = new System.Windows.Forms.TextBox();
@@ -62,14 +62,14 @@
             this.BreedingLabel = new System.Windows.Forms.Label();
             this.StatsLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.speedInputBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.specialDefenseInputBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.specialAttackInputBox = new System.Windows.Forms.TextBox();
+            this.breedingGroup1Input = new System.Windows.Forms.ComboBox();
+            this.breedingGroup2Input = new System.Windows.Forms.ComboBox();
+            this.eggCyclesInput = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -190,7 +190,7 @@
             this.addButton.AutoSize = true;
             this.addButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.addButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addButton.Location = new System.Drawing.Point(407, 9);
+            this.addButton.Location = new System.Drawing.Point(394, 19);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(32, 16);
@@ -316,19 +316,19 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.comboBox2);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.eggCyclesInput);
+            this.groupBox3.Controls.Add(this.breedingGroup2Input);
+            this.groupBox3.Controls.Add(this.breedingGroup1Input);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.speedInputBox);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.specialDefenseInputBox);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.specialAttackInputBox);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.defenseInputBox);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.attackInputBox);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.PrevEvoBox);
             this.groupBox3.Controls.Add(this.NextEvoBox);
@@ -356,14 +356,13 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Defense";
             // 
-            // textBox2
+            // defenseInputBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(330, 33);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(32, 22);
-            this.textBox2.TabIndex = 14;
-            this.textBox2.Text = "000";
+            this.defenseInputBox.Location = new System.Drawing.Point(330, 33);
+            this.defenseInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.defenseInputBox.Name = "defenseInputBox";
+            this.defenseInputBox.Size = new System.Drawing.Size(32, 22);
+            this.defenseInputBox.TabIndex = 14;
             // 
             // label2
             // 
@@ -374,14 +373,13 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Attack";
             // 
-            // textBox1
+            // attackInputBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 33);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(32, 22);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "000";
+            this.attackInputBox.Location = new System.Drawing.Point(227, 33);
+            this.attackInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.attackInputBox.Name = "attackInputBox";
+            this.attackInputBox.Size = new System.Drawing.Size(32, 22);
+            this.attackInputBox.TabIndex = 12;
             // 
             // label1
             // 
@@ -417,7 +415,6 @@
             this.hpInputBox.Name = "hpInputBox";
             this.hpInputBox.Size = new System.Drawing.Size(32, 22);
             this.hpInputBox.TabIndex = 5;
-            this.hpInputBox.Text = "000";
             // 
             // EvolutionsLabel
             // 
@@ -461,14 +458,13 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Speed";
             // 
-            // textBox3
+            // speedInputBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(270, 66);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(32, 22);
-            this.textBox3.TabIndex = 20;
-            this.textBox3.Text = "000";
+            this.speedInputBox.Location = new System.Drawing.Point(270, 66);
+            this.speedInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.speedInputBox.Name = "speedInputBox";
+            this.speedInputBox.Size = new System.Drawing.Size(32, 22);
+            this.speedInputBox.TabIndex = 20;
             // 
             // label5
             // 
@@ -479,14 +475,13 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Sp. Def";
             // 
-            // textBox4
+            // specialDefenseInputBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(175, 66);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(32, 22);
-            this.textBox4.TabIndex = 18;
-            this.textBox4.Text = "000";
+            this.specialDefenseInputBox.Location = new System.Drawing.Point(175, 66);
+            this.specialDefenseInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.specialDefenseInputBox.Name = "specialDefenseInputBox";
+            this.specialDefenseInputBox.Size = new System.Drawing.Size(32, 22);
+            this.specialDefenseInputBox.TabIndex = 18;
             // 
             // label6
             // 
@@ -497,41 +492,39 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Sp. Atk";
             // 
-            // textBox5
+            // specialAttackInputBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(78, 66);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(32, 22);
-            this.textBox5.TabIndex = 16;
-            this.textBox5.Text = "000";
+            this.specialAttackInputBox.Location = new System.Drawing.Point(78, 66);
+            this.specialAttackInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.specialAttackInputBox.Name = "specialAttackInputBox";
+            this.specialAttackInputBox.Size = new System.Drawing.Size(32, 22);
+            this.specialAttackInputBox.TabIndex = 16;
             // 
-            // comboBox1
+            // breedingGroup1Input
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(122, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 24);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.Text = "Type2";
+            this.breedingGroup1Input.FormattingEnabled = true;
+            this.breedingGroup1Input.Location = new System.Drawing.Point(122, 105);
+            this.breedingGroup1Input.Name = "breedingGroup1Input";
+            this.breedingGroup1Input.Size = new System.Drawing.Size(85, 24);
+            this.breedingGroup1Input.TabIndex = 22;
+            this.breedingGroup1Input.Text = "Group1";
             // 
-            // comboBox2
+            // breedingGroup2Input
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(239, 105);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(85, 24);
-            this.comboBox2.TabIndex = 23;
-            this.comboBox2.Text = "Type2";
+            this.breedingGroup2Input.FormattingEnabled = true;
+            this.breedingGroup2Input.Location = new System.Drawing.Point(239, 105);
+            this.breedingGroup2Input.Name = "breedingGroup2Input";
+            this.breedingGroup2Input.Size = new System.Drawing.Size(85, 24);
+            this.breedingGroup2Input.TabIndex = 23;
+            this.breedingGroup2Input.Text = "Group2";
             // 
-            // textBox6
+            // eggCyclesInput
             // 
-            this.textBox6.Location = new System.Drawing.Point(98, 141);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(32, 22);
-            this.textBox6.TabIndex = 24;
-            this.textBox6.Text = "000";
+            this.eggCyclesInput.Location = new System.Drawing.Point(98, 141);
+            this.eggCyclesInput.Margin = new System.Windows.Forms.Padding(4);
+            this.eggCyclesInput.Name = "eggCyclesInput";
+            this.eggCyclesInput.Size = new System.Drawing.Size(32, 22);
+            this.eggCyclesInput.TabIndex = 24;
             // 
             // label7
             // 
@@ -593,19 +586,19 @@
         private System.Windows.Forms.ComboBox ability2Box;
         private System.Windows.Forms.ComboBox ability1Box;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox defenseInputBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox attackInputBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox speedInputBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox specialDefenseInputBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox specialAttackInputBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox eggCyclesInput;
+        private System.Windows.Forms.ComboBox breedingGroup2Input;
+        private System.Windows.Forms.ComboBox breedingGroup1Input;
     }
 }

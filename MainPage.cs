@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Linq.Expressions;
 
 // on MainPage.Designer.cs, do overloads for click trigger on all members on dexEntryPlaceholder panels. EX: this.namePlaceholder1.Click += new System.EventHandler(this.dexEntryPlaceholder1_Click);
 // otherwise clicking on the label instead of the panel will not trigger the load
@@ -307,14 +308,19 @@ namespace DexDatabase
                 cmdLoadMainDexData.CommandText = $"SELECT Species, Height, Weight, Type\r\nFROM POKEMON \r\nWHERE dexNo ={dexNo} ";
                 SqlDataReader dexReader = cmdLoadMainDexData.ExecuteReader();
 
-                //store dexno species height weight in gui
-                currentDexNo.Text = dexNo;
-                dexReader.Read();
-                currentSpecies.Text = dexReader[0].ToString();
-                currentHeight.Text = dexReader[1].ToString();
-                currentWeight.Text = dexReader[2].ToString();
-                pokeType1.Text = dexReader[3].ToString();
-                dexReader.Close();
+                try
+                {
+                    //store dexno species height weight in gui
+                    currentDexNo.Text = dexNo;
+                    dexReader.Read();
+                    currentSpecies.Text = dexReader[0].ToString();
+                    currentHeight.Text = dexReader[1].ToString();
+                    currentWeight.Text = dexReader[2].ToString();
+                    pokeType1.Text = dexReader[3].ToString();
+                    dexReader.Close();
+                }
+                catch (Exception ex) { dexReader.Close(); }
+    
 
                 //query for secondary type and store in gui
                 cmdLoadMainDexData.CommandText = $"SELECT type2\r\nFROM SECONDARY_TYPE\r\nWHERE dexNumber = {dexNo} ";

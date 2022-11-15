@@ -42,6 +42,16 @@ namespace DexDatabase
                 ability2Box.Items.Add(reader[0].ToString());
                 hiddenAbilityBox.Items.Add(reader[0].ToString());
             }
+            reader.Close();
+            //query egg groups and add them to drop downs
+            cmdLoad.CommandText = "SELECT *\r\nFROM EGG_GROUPS";
+            reader = cmdLoad.ExecuteReader();
+            while(reader.Read())
+            {
+                breedingGroup1Input.Items.Add(reader[0].ToString());
+                breedingGroup2Input.Items.Add(reader[0].ToString());
+            }
+
 
             reader.Close();
             cnn.Close();
@@ -66,6 +76,48 @@ namespace DexDatabase
 
                 cmdInsertEntry.CommandText = $"INSERT INTO SECONDARY_TYPE\r\nVALUES ({NumberBox.Text}, '{type2Dropdown.Text}')";
                 cmdInsertEntry.ExecuteNonQuery();
+
+                //insert selected abilities
+                cmdInsertEntry.CommandText = $"INSERT INTO [HAS ABILITY]\r\nVALUES({NumberBox.Text}, '{ability1Box.Text}', 0)";
+                cmdInsertEntry.ExecuteNonQuery();
+                if (ability2Box.Text != "Insert Ability 2")
+                {
+                    cmdInsertEntry.CommandText = $"INSERT INTO [HAS ABILITY]\r\nVALUES({NumberBox.Text}, '{ability2Box.Text}', 1)";
+                    cmdInsertEntry.ExecuteNonQuery();
+                }
+                if (hiddenAbilityBox.Text != "Insert Hidden Ability")
+                {
+                    cmdInsertEntry.CommandText = $"INSERT INTO [HAS ABILITY]\r\nVALUES({NumberBox.Text}, '{hiddenAbilityBox.Text}', 2)";
+                    cmdInsertEntry.ExecuteNonQuery();
+                }
+
+
+                //insert base stats
+                cmdInsertEntry.CommandText = $"INSERT INTO [BASE STATS]\r\nVALUES({NumberBox.Text}, {hpInputBox.Text}, {attackInputBox.Text}, {defenseInputBox.Text}, {specialAttackInputBox.Text}, {specialDefenseInputBox.Text}, {speedInputBox.Text})";
+                cmdInsertEntry.ExecuteNonQuery();
+
+                //insert egg groups
+                cmdInsertEntry.CommandText = $"INSERT INTO BREEDING\r\nVALUES ({NumberBox.Text}, '{breedingGroup1Input.Text}', {eggCyclesInput.Text})";
+                cmdInsertEntry.ExecuteNonQuery();
+                if(breedingGroup2Input!= null) //
+                {
+                    cmdInsertEntry.CommandText = $"INSERT INTO SECONDARY_POKE_EGG_GROUP\r\nVALUES({NumberBox.Text}, '{breedingGroup2Input.Text}')";
+                    cmdInsertEntry.ExecuteNonQuery();
+                }
+
+                //previous evolution
+                if (Int32.TryParse(PrevEvoBox.Text, out int check)){
+                    cmdInsertEntry.CommandText = $"INSERT INTO Evolution\r\nVALUES ({NumberBox.Text}, {PrevEvoBox.Text}, True";
+                    cmdInsertEntry.ExecuteNonQuery();
+                }
+                //next evolution
+                if (Int32.TryParse(NextEvoBox.Text, out int check2))
+                {
+                    cmdInsertEntry.CommandText = $"INSERT INTO Evolution\r\nVALUES ({NumberBox.Text}, {NextEvoBox.Text}, False";
+                    cmdInsertEntry.ExecuteNonQuery();
+                }
+
+
 
                 System.Windows.Forms.MessageBox.Show("Insertion operation was succcessful!");
             }catch(Exception ex)

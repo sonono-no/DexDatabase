@@ -84,38 +84,38 @@ namespace DexDatabase
 
         private void dexEntryPlaceholder1_Click(object sender, EventArgs e)
         {
-            loadCurrentDexSprite(dexNoPlaceHolder1.Text);
             loadCurrentEntry(dexNoPlaceHolder1.Text, namePlaceholder1.Text);
 
         }
 
         private void dexEntryPlaceholder2_Click(object sender, EventArgs e)
         {
-            loadCurrentDexSprite(dexNoPlaceHolder2.Text);
             loadCurrentEntry(dexNoPlaceHolder2.Text, namePlaceholder2.Text);
         }
 
         private void dexEntryPlaceholder3_Click(object sender, EventArgs e)
         {
-            loadCurrentDexSprite(dexNoPlaceHolder3.Text);
             loadCurrentEntry(dexNoPlaceHolder3.Text, namePlaceholder3.Text);
         }
         private void dexEntryPlaceholder4_Click(object sender, EventArgs e)
         {
-            loadCurrentDexSprite(dexNoPlaceHolder4.Text);
             loadCurrentEntry(dexNoPlaceHolder4.Text, namePlaceholder4.Text);
         }
         private void dexEntryPlaceholder5_Click(object sender, EventArgs e)
         {
-            loadCurrentDexSprite(dexNoPlaceHolder5.Text);
             loadCurrentEntry(dexNoPlaceHolder5.Text, namePlaceholder5.Text);
         }
 
 
         private void loadCurrentDexSprite(string dexNo) //isSearch will determine whether empty entries will be continuously displayed or not
         {
-            if (File.Exists($"..\\..\\images\\{Int32.Parse(dexNo)}.png"))
-                pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\{Int32.Parse(dexNo)}.png");
+            if (Int32.TryParse(dexNo, out int tryDexNo))
+            {
+                if (File.Exists($"..\\..\\images\\{Int32.Parse(dexNo)}.png"))
+                    pokePicture.BackgroundImage = Image.FromFile($"..\\..\\images\\{Int32.Parse(dexNo)}.png");
+                else
+                    pokePicture.BackgroundImage = Image.FromFile("..\\..\\images\\000.png");
+            }
             else
                 pokePicture.BackgroundImage = Image.FromFile("..\\..\\images\\000.png");
         }
@@ -239,11 +239,11 @@ namespace DexDatabase
         }
 
 
-        private void loadCurrentEntry(string dexNo, string pokeName) //function for loading all relevant data to standard entry view
-                                                                     //now add for case where there isn't a valid current entry
+        private void loadCurrentEntry(string dexNo, string pokeName) //function for loading all relevant data to standard entry view                                                      
         {
             if (pokeName == "???")// probably just change the entire current dex entry display to a questionmark
             {
+                loadCurrentDexSprite("000");
                 currentDexNo.Text = "???";
                 currentSpecies.Text = "Undiscovered";
                 currentHeight.Text = "Undiscovered";
@@ -256,6 +256,7 @@ namespace DexDatabase
             }
             else if (pokeName == "---")
             {
+                loadCurrentDexSprite("000");
                 currentDexNo.Text = "---";
                 currentSpecies.Text = null;
                 currentHeight.Text = null;
@@ -268,6 +269,7 @@ namespace DexDatabase
             }
             else
             {
+                loadCurrentDexSprite(dexNo);
                 //update text for all other displayed information
                 //dexno, type, species, height, weight, abilities
                 // open sql connection for queries
